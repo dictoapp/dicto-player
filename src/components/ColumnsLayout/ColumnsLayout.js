@@ -10,6 +10,7 @@ const ColumnsLayout = ({
   chunks = [],
   compositionTitle,
   mediaUrl,
+  currentMediaTime,
   actions: {
     setActiveChunk,
     setCurrentMediaDuration,
@@ -36,7 +37,8 @@ const ColumnsLayout = ({
       <MediaPlayer
         mediaUrl={mediaUrl}
         onDuration={setCurrentMediaDuration}
-        onTimeUpdate={setCurrentMediaTime} />
+        onTimeUpdate={setCurrentMediaTime}
+        currentMediaTime={currentMediaTime} />
     </section>
   </section>
 );

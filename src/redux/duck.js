@@ -147,6 +147,7 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
         ...state,
         activeChunk: action.chunk,
         activeChunkIndex,
+        currentMediaTime: action.chunk.begin,
         chunks
       };
     case SET_CURRENT_MEDIA_DURATION:
@@ -201,11 +202,14 @@ const compositionTitle = (state) => state.compositionReducer.metadata && state.c
 const mediaUrl = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.mediaUrl;
 const displayMode = (state) => state.settingsReducer.displayMode;
 const chunks = (state) => state.player.chunks;
+const currentMediaTime = (state) => state.player.currentMediaTime;
 
 export const selector = createStructuredSelector({
   compositionTitle,
   mediaUrl,
   displayMode,
+
+  currentMediaTime,
   chunks
 });
 

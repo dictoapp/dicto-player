@@ -1,8 +1,9 @@
 /* esling react/prefer-stateless-function: 0 */
 import React, {Component} from 'react';
-import {Media, Player, controls} from 'react-media-player';
+import {Media, Player, controls, withMediaProps} from 'react-media-player';
 
 import './MediaPlayer.scss';
+import MediaTimeHandler from './MediaTimeHandler';
 
 const {PlayPause, MuteUnmute} = controls;
 
@@ -18,7 +19,8 @@ class MediaPlayer extends Component {
     const {
       mediaUrl,
       onDuration,
-      onTimeUpdate
+      onTimeUpdate,
+      currentMediaTime
     } = this.props;
     return mediaUrl ? (
       <Media>
@@ -32,6 +34,7 @@ class MediaPlayer extends Component {
           <div className="media-controls">
             <PlayPause />
             <MuteUnmute />
+            <MediaTimeHandler currentMediaTime={currentMediaTime} />
           </div>
         </div>
       </Media>
@@ -39,4 +42,4 @@ class MediaPlayer extends Component {
   }
 }
 
-export default MediaPlayer;
+export default withMediaProps(MediaPlayer);

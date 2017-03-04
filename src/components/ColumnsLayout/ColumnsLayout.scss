@@ -1,0 +1,49 @@
+
+@import '../../parameters.scss';
+
+.dicto-player-ColumnsLayout
+{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .aside-column,
+  .media-column
+  {
+    flex: 1;
+    height: 100%;
+  } 
+
+  .aside-column
+  {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    justify-content: stretch;
+    .header
+    {
+
+    }
+    .chunks-container
+    {
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+
+  .media-column
+  {
+    background: black;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+}

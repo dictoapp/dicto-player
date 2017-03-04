@@ -1,0 +1,11 @@
+@import '../../parameters.scss';
+
+.dicto-player-Chunk
+{
+  cursor: pointer;
+
+  &.active
+  {
+    border: 5px solid black;
+  } 
+}

@@ -19,25 +19,24 @@ const ColumnsLayout = ({
   <section className="dicto-player-ColumnsLayout">
     <aside className="aside-column">
       <div className="header">
-        <h1>{compositionTitle || 'Dicto'}</h1>
+        <h1>{compositionTitle || 'Dicto'}</h1>
       </div>
       <div className="chunks-container">
         {
           chunks.map((chunk, index) => (
-            <Chunk 
-              chunk={chunk} 
-              onClick={setActiveChunk}
-            />
+            <Chunk
+              chunk={chunk}
+              key={index}
+              onClick={setActiveChunk} />
           ))
         }
       </div>
     </aside>
     <section className="media-column">
-      <MediaPlayer 
-        mediaUrl={mediaUrl} 
+      <MediaPlayer
+        mediaUrl={mediaUrl}
         onDuration={setCurrentMediaDuration}
-        onTimeUpdate={setCurrentMediaTime}
-      />
+        onTimeUpdate={setCurrentMediaTime} />
     </section>
   </section>
 );

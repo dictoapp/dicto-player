@@ -32,17 +32,17 @@ class PlayerContainer extends Component {
     super(props);
     this.props.actions.setComposition(props.composition);
     this.props.actions.setSettings(props.settings);
-    this.renderAppropriatePlayer = (displayMode, props) => {
+    this.renderAppropriatePlayer = (displayMode, theseProps) => {
       switch (displayMode) {
         case 'columns':
         default:
-          return <ColumnsLayout {...props} />
+          return <ColumnsLayout {...theseProps} />;
       }
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.composition !== nextProps.composition) {
+    if (this.props.composition !== nextProps.composition) {
       this.props.actions.setComposition(nextProps.composition);
     }
 

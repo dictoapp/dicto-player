@@ -51,14 +51,14 @@ export const setCurrentMediaDuration = (duration) => ({
 export const setCurrentMediaTime = (playerState) => ({
   type: SET_CURRENT_MEDIA_TIME,
   playerState
-})
+});
 /*
  * Reducers
  */
 const COMPOSITION_DEFAULT_STATE = {
 
 };
-function composition (state = COMPOSITION_DEFAULT_STATE, action) {
+function compositionReducer (state = COMPOSITION_DEFAULT_STATE, action) {
   switch (action.type) {
     case RESET_APP:
       return COMPOSITION_DEFAULT_STATE;
@@ -72,7 +72,7 @@ function composition (state = COMPOSITION_DEFAULT_STATE, action) {
 const SETTINGS_DEFAULT_STATE = {
   displayMode: 'columns'
 };
-function settings (state = SETTINGS_DEFAULT_STATE, action) {
+function settingsReducer (state = SETTINGS_DEFAULT_STATE, action) {
   switch (action.type) {
     case RESET_APP:
       return SETTINGS_DEFAULT_STATE;
@@ -116,7 +116,7 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
             active: activeChunkIndex && activeChunkIndex === id ? true : false,
             matched: chunkMatchesSearchQuery(chunk, searchQuery)
           }))
-        }
+        };
       }
       return state;
     case SET_SEARCH_QUERY:
@@ -128,9 +128,8 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
           ...chunk,
           matched: chunkMatchesSearchQuery(chunk, searchQuery)
         }))
-      }
+      };
     case SET_ACTIVE_CHUNK:
-      let activeChunkIndex;
       chunks = state.chunks.map((chunk, index) => {
         if (chunk.id === action.chunk.id) {
           activeChunkIndex = index;
@@ -165,7 +164,7 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
       // finding the active chunk
       chunks = state.chunks.map((chunk, index) => {
         if (chunk.begin <= currentTime && chunk.end >= currentTime) {
-          
+
           activeChunkIndex = index;
           activeChunk = {...chunk};
           return {
@@ -192,15 +191,15 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
 
 export default combineReducers({
   player,
-  composition,
-  settings
+  compositionReducer,
+  settingsReducer
 });
 /*
  * Selectors
  */
-const compositionTitle = (state) => state.composition.metadata && state.composition.metadata.title;
-const mediaUrl = (state) => state.composition.metadata && state.composition.metadata.mediaUrl;
-const displayMode = (state) => state.settings.displayMode;
+const compositionTitle = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.title;
+const mediaUrl = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.mediaUrl;
+const displayMode = (state) => state.settingsReducer.displayMode;
 const chunks = (state) => state.player.chunks;
 
 export const selector = createStructuredSelector({

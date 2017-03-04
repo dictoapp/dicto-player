@@ -1,15 +1,18 @@
-
-import React, { Component } from 'react';
-import { Media, Player, controls } from 'react-media-player';
+/* esling react/prefer-stateless-function: 0 */
+import React, {Component} from 'react';
+import {Media, Player, controls} from 'react-media-player';
 
 import './MediaPlayer.scss';
 
-const { PlayPause, MuteUnmute, } = controls;
+const {PlayPause, MuteUnmute} = controls;
 
 class MediaPlayer extends Component {
 
   constructor(props) {
     super(props);
+  }
+  shouldComponentUpdate() {
+    return true;
   }
   render() {
     const {
@@ -17,19 +20,18 @@ class MediaPlayer extends Component {
       onDuration,
       onTimeUpdate
     } = this.props;
-    return  mediaUrl ? (
+    return mediaUrl ? (
       <Media>
         <div className="MediaPlayer">
           <div className="media-player">
-            <Player 
+            <Player
               src={mediaUrl}
               onDuration={onDuration}
-              onTimeUpdate={onTimeUpdate}
-            />
+              onTimeUpdate={onTimeUpdate} />
           </div>
           <div className="media-controls">
-            <PlayPause/>
-            <MuteUnmute/>
+            <PlayPause />
+            <MuteUnmute />
           </div>
         </div>
       </Media>

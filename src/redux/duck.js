@@ -21,6 +21,7 @@ export const SET_SEARCH_QUERY = '§dicto-player/SET_SEARCH_QUERY';
 export const SET_ACTIVE_CHUNK = '§dicto-player/SET_ACTIVE_CHUNK';
 export const SET_CURRENT_MEDIA_DURATION = '§dicto-player/SET_CURRENT_MEDIA_DURATION';
 export const SET_CURRENT_MEDIA_TIME = '§dicto-player/SET_CURRENT_MEDIA_TIME';
+export const SET_INFORMATION_MODAL_VISIBILITY = '§dicto-player/SET_INFORMATION_MODAL_VISIBILITY';
 /*
  * Action creators
  */
@@ -51,6 +52,10 @@ export const setCurrentMediaDuration = (duration) => ({
 export const setCurrentMediaTime = (playerState) => ({
   type: SET_CURRENT_MEDIA_TIME,
   playerState
+});
+export const setInformationModalVisibility = (state) => ({
+  type: SET_INFORMATION_MODAL_VISIBILITY,
+  state
 });
 /*
  * Reducers
@@ -94,7 +99,8 @@ const PLAYER_DEFAULT_STATE = {
   // currentMediaUrl: undefined,
   // currentMediaPosition : undefined,
   // currentMediaIsPlaying: false,
-  activeMediaDuration: 0
+  activeMediaDuration: 0,
+  informationModalVisible: false
 };
 function player(state = PLAYER_DEFAULT_STATE, action) {
   let searchQuery;
@@ -185,6 +191,11 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
         activeChunk,
         chunks
       };
+    case SET_INFORMATION_MODAL_VISIBILITY:
+      return {
+        ...state,
+        informationModalVisible: action.state !== undefined ? action.state : !state.informationModalVisible
+      };
     default:
       return state;
   }
@@ -199,17 +210,29 @@ export default combineReducers({
  * Selectors
  */
 const compositionTitle = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.title;
+const compositionDescription = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.description;
+const compositionAuthors = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.authors;
+const compositionTags = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.tags;
+
 const mediaUrl = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.mediaUrl;
 const displayMode = (state) => state.settingsReducer.displayMode;
 const chunks = (state) => state.player.chunks;
 const currentMediaTime = (state) => state.player.currentMediaTime;
+const searchQuery = (state) => state.player.searchQuery;
+const informationModalVisible = (state) => state.player.informationModalVisible;
 
 export const selector = createStructuredSelector({
   compositionTitle,
+  compositionDescription,
+  compositionAuthors,
+  compositionTags,
+  
   mediaUrl,
   displayMode,
 
   currentMediaTime,
+  searchQuery,
+  informationModalVisible,
   chunks
 });
 

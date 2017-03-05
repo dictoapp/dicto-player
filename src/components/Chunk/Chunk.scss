@@ -2,10 +2,63 @@
 
 .dicto-player-Chunk
 {
-  cursor: pointer;
+    overflow: hidden;
 
-  &.active
-  {
-    border: 5px solid black;
-  } 
+    max-height: 1000px;
+    margin: $gutter-small;
+    margin-top: 0;
+    padding: $gutter-medium;
+
+    cursor: pointer;
+    transition: all $time-short ease;
+
+    background: $color-bg-medium;
+    &:hover
+    {
+        background: $color-btn-light;
+    }
+    &.active
+    {
+        color: $color-bg-light;
+        background: $color-btn-dark;
+    }
+    &.hidden
+    {
+        max-height: 10px;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    /*
+     * SECONDARY LAYOUT
+     */
+    .contents-container
+    {
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ul
+        {
+            margin-top: 0;
+        }
+    }
+    .tags-container
+    {
+        margin-top: $gutter-medium;
+        margin-bottom: $gutter-medium;
+    }
+    /*
+   * COMPONENTS
+   */
+    .tag
+    {
+        margin-right: $gutter-small;
+        padding: $gutter-small;
+
+        border-radius: $font-size-1/2;
+    }
 }

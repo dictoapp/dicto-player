@@ -2,45 +2,129 @@ import React from 'react';
 
 import './ColumnsLayout.scss';
 
+import Modal from 'react-modal';
+
+import {
+  ShareButtons,
+  ShareCounts,
+  generateShareIcon
+} from 'react-share';
+
+const {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton 
+} = ShareButtons;
+
 import Chunk from '../Chunk/Chunk';
 import MediaPlayer from '../MediaPlayer/MediaPlayer';
+import SearchComposition from '../SearchComposition/SearchComposition';
+import InfoTip from '../InfoTip/InfoTip';
+import Railway from '../Railway/Railway';
 
 
 const ColumnsLayout = ({
   chunks = [],
   compositionTitle,
+  compositionDescription,
+  compositionAuthors,
+  compositionTags,
+
   mediaUrl,
   currentMediaTime,
+  searchQuery,
+  informationModalVisible,
   actions: {
     setActiveChunk,
     setCurrentMediaDuration,
-    setCurrentMediaTime
+    setCurrentMediaTime,
+    setSearchQuery,
+    setInformationModalVisibility
   }
-}) => (
-  <section className="dicto-player-ColumnsLayout">
-    <aside className="aside-column">
-      <div className="header">
-        <h1>{compositionTitle || 'Dicto'}</h1>
-      </div>
-      <div className="chunks-container">
-        {
-          chunks.map((chunk, index) => (
-            <Chunk
-              chunk={chunk}
-              key={index}
-              onClick={setActiveChunk} />
-          ))
-        }
-      </div>
-    </aside>
-    <section className="media-column">
-      <MediaPlayer
-        mediaUrl={mediaUrl}
-        onDuration={setCurrentMediaDuration}
-        onTimeUpdate={setCurrentMediaTime}
-        currentMediaTime={currentMediaTime} />
+}) => {
+  const closeModal = () => setInformationModalVisibility(false);
+  return (
+    <section className="dicto-player-ColumnsLayout">
+      <aside className="aside-column">
+        <div className="header">
+          <h1>{compositionTitle || 'Dicto'} <InfoTip onClick={setInformationModalVisibility} /> </h1>
+          <SearchComposition
+            searchQuery={searchQuery}
+            onSearchQueryChange={setSearchQuery}
+          />
+        </div>
+        <div className="chunks-container">
+          {
+            chunks.map((chunk, index) => (
+              <Chunk
+                chunk={chunk}
+                key={index}
+                onClick={setActiveChunk} />
+            ))
+          }
+        </div>
+      </aside>
+      <Railway 
+        chunks={chunks}
+      />
+      <section className="media-column">
+        <MediaPlayer
+          mediaUrl={mediaUrl}
+          onDuration={setCurrentMediaDuration}
+          onTimeUpdate={setCurrentMediaTime}
+          currentMediaTime={currentMediaTime} />
+      </section>
+
+      {
+        informationModalVisible ?
+        <Modal
+          isOpen={informationModalVisible}
+          onRequestClose={closeModal}
+          shouldCloseOnOverlayClick={true}
+          contentLabel="Information"
+        >
+          <h2>{compositionTitle || 'Dicto'}</h2>
+
+          <div className="modal-content-wrapper">
+            {compositionDescription || compositionAuthors ?
+              <div className="modal-column info">
+                <p><i>{compositionDescription}</i></p>
+                <p><i>{compositionAuthors.map(author => author).join(', ')}.</i></p>
+              </div> : null }
+            <div className="modal-column addresses">
+              <h3>Partager</h3>
+              <div className="modal-section">
+                <p>Url de cette composition : </p>
+                <div className="to-copy">{window.location.href}</div>
+              </div>
+              <div className="modal-section">
+                <p>Embarquer : </p>
+                <div className="to-copy">
+                  {`<iframe src=${window.location.href} frameborder=0 allowfullscreen width=800 height=600 />`}
+                </div>
+              </div>
+              {/*<div className="modal-section">
+                <FacebookShareButton
+                  title={compositionTitle}
+                  description={compositionDescription || chunks[0] && chunks[0].content}
+                />
+                <TwitterShareButton
+                  title={compositionTitle}
+                  hashtags={compositionTags.map(tag => tag.name)}
+                />
+              </div>*/}
+            </div>
+          </div>
+        </Modal>
+        : null
+      }
     </section>
-  </section>
-);
+  );
+};
 
 export default ColumnsLayout;

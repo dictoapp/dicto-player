@@ -1,0 +1,26 @@
+
+@import '../../parameters.scss';
+
+.dicto-player-InfoTip
+{
+    font-size: $font-size-1;
+
+    display: inline-block;
+
+    width: $font-size-2 * 1.5;
+    height: $font-size-2 * 1.5;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: $color-bg-light;
+    border-radius: 50%;
+    background: $color-btn-medium;
+
+    transition: all $time-short ease;
+    
+    &:hover
+    {
+        background: $color-btn-dark;
+    }
+}

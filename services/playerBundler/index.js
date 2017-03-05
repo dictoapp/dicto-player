@@ -35,7 +35,7 @@ const buildMeta = (composition) => {
     <meta name="og:description" content="${composition.metadata.description}" />
     <meta name="twitter:description" content="${composition.metadata.description}" />
   ` :  '';
-  const authors = composition.metadata.authors && composition.metadata.authors
+  const authors = composition.metadata.authors && composition.metadata.authors.length
                   ? 
                   composition.metadata.authors.map(author => `
                     <meta name="DC.Creator" content="${author}" />

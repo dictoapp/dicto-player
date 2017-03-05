@@ -1,0 +1,25 @@
+@import '../../parameters.scss';
+
+.dicto-player-SearchComposition
+{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  input{
+    flex: 1;
+    padding: $gutter-small;
+    border: none;
+    background: $color-bg-medium;
+    outline: none;
+
+    transition: all $time-short ease;
+
+    &:hover,
+    &:focus
+    {
+      color: $color-bg-light;
+      background: $color-btn-medium;
+    }
+  }
+}

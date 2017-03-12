@@ -17,7 +17,6 @@ const Player = ({
   composition = {},
   settings = {}
 }) => {
-
   return (
     <Provider store={store}>
       <PlayerContainer composition={composition} settings={settings} />

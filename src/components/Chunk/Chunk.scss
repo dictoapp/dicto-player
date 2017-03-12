@@ -4,10 +4,10 @@
 {
     overflow: hidden;
 
-    max-height: 1000px;
+    max-height: 1000000px;
     margin: $gutter-small;
     margin-top: 0;
-    padding: $gutter-medium;
+    padding: $gutter-small;
 
     cursor: pointer;
     transition: all $time-short ease;
@@ -50,6 +50,8 @@
     {
         margin-top: $gutter-medium;
         margin-bottom: $gutter-medium;
+        display : flex;
+        flex-flow: row wrap;
     }
     /*
    * COMPONENTS

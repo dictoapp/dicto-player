@@ -4,24 +4,24 @@ import './ColumnsLayout.scss';
 
 import Modal from 'react-modal';
 
-import {
-  ShareButtons,
-  ShareCounts,
-  generateShareIcon
-} from 'react-share';
+// import {
+//   ShareButtons,
+//   ShareCounts,
+//   generateShareIcon
+// } from 'react-share';
 
-const {
-  FacebookShareButton,
-  GooglePlusShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  PinterestShareButton,
-  VKShareButton 
-} = ShareButtons;
+// const {
+//   FacebookShareButton,
+//   GooglePlusShareButton,
+//   LinkedinShareButton,
+//   TwitterShareButton,
+//   TelegramShareButton,
+//   WhatsappShareButton,
+//   PinterestShareButton,
+//   VKShareButton
+// } = ShareButtons;
 
-import Chunk from '../Chunk/Chunk';
+import ChunksContainer from '../../containers/ChunksContainer/ChunksContainer';
 import MediaPlayer from '../MediaPlayer/MediaPlayer';
 import SearchComposition from '../SearchComposition/SearchComposition';
 import InfoTip from '../InfoTip/InfoTip';
@@ -33,14 +33,13 @@ const ColumnsLayout = ({
   compositionTitle,
   compositionDescription,
   compositionAuthors,
-  compositionTags,
 
   mediaUrl,
   currentMediaTime,
   searchQuery,
   informationModalVisible,
+  scrollPosition,
   actions: {
-    setActiveChunk,
     setCurrentMediaDuration,
     setCurrentMediaTime,
     setSearchQuery,
@@ -55,23 +54,13 @@ const ColumnsLayout = ({
           <h1>{compositionTitle || 'Dicto'} <InfoTip onClick={setInformationModalVisibility} /> </h1>
           <SearchComposition
             searchQuery={searchQuery}
-            onSearchQueryChange={setSearchQuery}
-          />
+            onSearchQueryChange={setSearchQuery} />
         </div>
-        <div className="chunks-container">
-          {
-            chunks.map((chunk, index) => (
-              <Chunk
-                chunk={chunk}
-                key={index}
-                onClick={setActiveChunk} />
-            ))
-          }
-        </div>
+        <ChunksContainer />
       </aside>
-      <Railway 
+      <Railway
         chunks={chunks}
-      />
+        scrollPosition={scrollPosition} />
       <section className="media-column">
         <MediaPlayer
           mediaUrl={mediaUrl}
@@ -82,45 +71,44 @@ const ColumnsLayout = ({
 
       {
         informationModalVisible ?
-        <Modal
-          isOpen={informationModalVisible}
-          onRequestClose={closeModal}
-          shouldCloseOnOverlayClick={true}
-          contentLabel="Information"
-        >
-          <h2>{compositionTitle || 'Dicto'}</h2>
+          <Modal
+            isOpen={informationModalVisible}
+            onRequestClose={closeModal}
+            shouldCloseOnOverlayClick
+            contentLabel="Information">
+            <h2>{compositionTitle || 'Dicto'}</h2>
 
-          <div className="modal-content-wrapper">
-            {compositionDescription || compositionAuthors ?
-              <div className="modal-column info">
-                <p><i>{compositionDescription}</i></p>
-                <p><i>{compositionAuthors.map(author => author).join(', ')}.</i></p>
-              </div> : null }
-            <div className="modal-column addresses">
-              <h3>Partager</h3>
-              <div className="modal-section">
-                <p>Url de cette composition : </p>
-                <div className="to-copy">{window.location.href}</div>
-              </div>
-              <div className="modal-section">
-                <p>Embarquer : </p>
-                <div className="to-copy">
-                  {`<iframe src=${window.location.href} frameborder=0 allowfullscreen width=800 height=600 />`}
+            <div className="modal-content-wrapper">
+              {compositionDescription || compositionAuthors ?
+                <div className="modal-column info">
+                  <p><i>{compositionDescription}</i></p>
+                  <p><i>{compositionAuthors.map(author => author).join(', ')}.</i></p>
+                </div> : null }
+              <div className="modal-column addresses">
+                <h3>Partager</h3>
+                <div className="modal-section">
+                  <p>Url de cette composition : </p>
+                  <div className="to-copy">{window.location.href}</div>
                 </div>
-              </div>
-              {/*<div className="modal-section">
+                <div className="modal-section">
+                  <p>Embarquer : </p>
+                  <div className="to-copy">
+                    {`<iframe src="${window.location.href}" frameborder=0 allowfullscreen width=800 height=600 />`}
+                  </div>
+                </div>
+                {/*<div className="modal-section">
                 <FacebookShareButton
                   title={compositionTitle}
-                  description={compositionDescription || chunks[0] && chunks[0].content}
+                  description={compositionDescription || chunks[0] && chunks[0].content}
                 />
                 <TwitterShareButton
                   title={compositionTitle}
                   hashtags={compositionTags.map(tag => tag.name)}
                 />
               </div>*/}
+              </div>
             </div>
-          </div>
-        </Modal>
+          </Modal>
         : null
       }
     </section>

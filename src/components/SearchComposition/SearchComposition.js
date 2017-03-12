@@ -9,12 +9,11 @@ const SearchComposition = ({
   const onSearchTermChange = (e) => onSearchQueryChange(e.target.value);
   return (
     <div className="dicto-player-SearchComposition">
-      <input 
-        type="text" 
+      <input
+        type="text"
         value={searchQuery}
         onChange={onSearchTermChange}
-        placeholder="Chercher un terme"
-      />
+        placeholder="Chercher un terme" />
     </div>
   );
 };

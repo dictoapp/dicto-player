@@ -4,7 +4,7 @@
 {
     display: flex;
 
-    width: $font-size-6;
+    width: 3%;
     padding-top: $gutter-medium;
     padding-bottom: $gutter-medium;
 
@@ -12,6 +12,7 @@
 
     flex-flow: column nowrap;
     justify-content: stretch;
+    position: relative;
     .chunks-container
     {
         position: relative;
@@ -39,9 +40,18 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: stretch;
+
+            .tag{
+              flex: 1;
+              opacity: .1;
+            }
+
             &:hover
             {
                 background: rgba(255, 255, 255, .6);
+                .tag{
+                  opacity: .8;
+                }
             }
             &.active
             {
@@ -50,16 +60,23 @@
                 {
                     background: rgba(255, 255, 255, .9);
                 }
+                .tag{
+                  opacity: .9;
+                }
             }
             &.hidden
             {
                 background: rgba(255, 255, 255, .1);
             }
-
-            .tag{
-              flex: 1;
-              opacity: .4;
-            }
         }
+    }
+
+    .scrollbar
+    {
+        position : absolute;
+        left: 0;
+        background: rgba(255,255,255,0.8);
+        width: 100%;
+        transition: all $time-short/2 ease;
     }
 }

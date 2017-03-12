@@ -22,6 +22,8 @@ export const SET_ACTIVE_CHUNK = '§dicto-player/SET_ACTIVE_CHUNK';
 export const SET_CURRENT_MEDIA_DURATION = '§dicto-player/SET_CURRENT_MEDIA_DURATION';
 export const SET_CURRENT_MEDIA_TIME = '§dicto-player/SET_CURRENT_MEDIA_TIME';
 export const SET_INFORMATION_MODAL_VISIBILITY = '§dicto-player/SET_INFORMATION_MODAL_VISIBILITY';
+export const SCROLL_UPDATE = '§dicto-player/SCROLL_UPDATE';
+export const SET_CHUNKS_POSITIONS = '§dicto-player/SET_CHUNKS_POSITIONS';
 /*
  * Action creators
  */
@@ -56,6 +58,14 @@ export const setCurrentMediaTime = (playerState) => ({
 export const setInformationModalVisibility = (state) => ({
   type: SET_INFORMATION_MODAL_VISIBILITY,
   state
+});
+export const scrollUpdate = (values) => ({
+  type: SCROLL_UPDATE,
+  values
+});
+export const setChunksPositions = (positions) => ({
+  type: SET_CHUNKS_POSITIONS,
+  positions
 });
 /*
  * Reducers
@@ -100,7 +110,8 @@ const PLAYER_DEFAULT_STATE = {
   // currentMediaPosition : undefined,
   // currentMediaIsPlaying: false,
   activeMediaDuration: 0,
-  informationModalVisible: false
+  informationModalVisible: false,
+  scrollPosition: undefined
 };
 function player(state = PLAYER_DEFAULT_STATE, action) {
   let searchQuery;
@@ -196,6 +207,77 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
         ...state,
         informationModalVisible: action.state !== undefined ? action.state : !state.informationModalVisible
       };
+    case SCROLL_UPDATE:
+      const {top, scrollHeight, clientHeight, scrollTop} = action.values;
+      const topBorder = scrollTop;
+      const bottomBorder = scrollTop + clientHeight;
+      let topChunk;
+      let topPortion;
+      let bottomChunk;
+      let bottomPortion;
+      // translate to box position
+      state.chunks.some(chunk => {
+        if (topBorder >= chunk.top && topBorder <= chunk.top + chunk.height) {
+          topChunk = chunk;
+          topPortion = (topBorder - chunk.top) / chunk.height;
+        }
+        if (bottomBorder >= chunk.top && bottomBorder <= chunk.top + chunk.height) {
+          bottomChunk = chunk;
+          bottomPortion = (bottomBorder - chunk.top) / chunk.height;
+          return true;
+        }
+      });
+      const chunksTotalDuration = state.chunks.reduce((totalDuration, chunk) => {
+        const chunkDuration = chunk.end - chunk.begin;
+        return totalDuration + chunkDuration;
+      }, 0);
+      let scaledTopPrct;
+      let scaledHeightPrct;
+      // this is the visual scroll translated to a time-relative scale
+      if (topChunk) {
+        const translatedTopTime = topChunk.begin + (topChunk.end - topChunk.begin) * topPortion;
+        let translatedBottomTime;
+        if (bottomChunk) {
+          translatedBottomTime = bottomChunk.begin + (bottomChunk.end - bottomChunk.begin) * bottomPortion;
+        }
+      else {
+          translatedBottomTime = topChunk.end;
+        }
+        scaledTopPrct = translatedTopTime / chunksTotalDuration * 100;
+        scaledHeightPrct = (translatedBottomTime - translatedTopTime) / chunksTotalDuration * 100;
+      }
+      const visualTopPrct = top * 100;
+      const visualHeightPrct = clientHeight / (scrollHeight - clientHeight) * 100;
+      const scrollPosition = {
+        visualTopPrct,
+        visualHeightPrct,
+        scaledTopPrct,
+        scaledHeightPrct
+      };
+      if (
+          !state.scrollPosition ||
+          JSON.stringify(scrollPosition) !== JSON.stringify(state.scrollPosition)
+          ) {
+        return {
+          ...state,
+          scrollPosition
+        };
+      }
+      return state;
+    case SET_CHUNKS_POSITIONS:
+      chunks = state.chunks.map((chunk, index) => {
+        return {
+          ...chunk,
+          ...action.positions[index]
+        };
+      });
+      if (JSON.stringify(chunks) !== JSON.stringify(state.chunks)) {
+        return {
+          ...state,
+          chunks
+        };
+      }
+      return state;
     default:
       return state;
   }
@@ -220,19 +302,22 @@ const chunks = (state) => state.player.chunks;
 const currentMediaTime = (state) => state.player.currentMediaTime;
 const searchQuery = (state) => state.player.searchQuery;
 const informationModalVisible = (state) => state.player.informationModalVisible;
+const scrollPosition = (state) => state.player.scrollPosition;
 
 export const selector = createStructuredSelector({
   compositionTitle,
   compositionDescription,
   compositionAuthors,
   compositionTags,
-  
+
   mediaUrl,
   displayMode,
 
   currentMediaTime,
   searchQuery,
   informationModalVisible,
+  scrollPosition,
+
   chunks
 });
 

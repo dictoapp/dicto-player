@@ -5,6 +5,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
+  overflow: hidden;
 
   input{
     flex: 1;

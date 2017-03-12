@@ -6,10 +6,9 @@ const InfoTip = ({
   onClick
 }) => {
   return (
-  <span 
-    className="dicto-player-InfoTip"
-    onClick={onClick}
-  >
+    <span
+      className="dicto-player-InfoTip"
+      onClick={onClick}>
     i
   </span>);
 };

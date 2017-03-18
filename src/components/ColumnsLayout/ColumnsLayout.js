@@ -62,7 +62,8 @@ const ColumnsLayout = ({
       <Railway
         chunks={chunks}
         scrollPosition={scrollPosition}
-        currentMediaDuration={currentMediaDuration} />
+        currentMediaDuration={currentMediaDuration}
+        currentMediaTime={currentMediaTime} />
       <section className="media-column">
         <MediaPlayer
           mediaUrl={mediaUrl}

@@ -2,20 +2,25 @@
 
 .dicto-player-Railway
 {
+    position: relative;
+
     display: flex;
 
     width: 3%;
     padding-top: $gutter-medium;
     padding-bottom: $gutter-medium;
 
+    pointer-events: none;
+
     background: $color-btn-dark;
 
     flex-flow: column nowrap;
     justify-content: stretch;
-    position: relative;
     .chunks-container
     {
         position: relative;
+
+        pointer-events: none;
 
         flex: 1;
         .chunk
@@ -24,33 +29,33 @@
             left: 0;
 
             display: inline-block;
+            display: flex;
 
             width: 100%;
             margin: 0;
             padding: 0;
 
-            transition: all $time-short ease;
-
             cursor: pointer;
+            transition: all $time-short ease;
+            pointer-events: all;
 
             border: 1px solid rgba(255, 255, 255, .5);
             background: rgba(255, 255, 255, .5);
 
-
-            display: flex;
             flex-flow: row nowrap;
             align-items: stretch;
+            .tag
+            {
+                opacity: .1;
 
-            .tag{
-              flex: 1;
-              opacity: .1;
+                flex: 1;
             }
-
             &:hover
             {
                 background: rgba(255, 255, 255, .6);
-                .tag{
-                  opacity: .8;
+                .tag
+                {
+                    opacity: .8;
                 }
             }
             &.active
@@ -60,8 +65,9 @@
                 {
                     background: rgba(255, 255, 255, .9);
                 }
-                .tag{
-                  opacity: .9;
+                .tag
+                {
+                    opacity: .9;
                 }
             }
             &.hidden
@@ -70,13 +76,28 @@
             }
         }
     }
+    .playing-head
+    {
+        position: absolute;
+        left: 0;
 
+        width: 100%;
+
+        transition: all $time-short/2 ease;
+        pointer-events: none;
+
+        border-bottom: 1px solid red;
+    }
     .scrollbar
     {
-        position : absolute;
+        position: absolute;
         left: 0;
-        background: rgba(255,255,255,0.8);
+
         width: 100%;
+
         transition: all $time-short/2 ease;
+        pointer-events: none;
+
+        background: rgba(255,255,255,.8);
     }
 }

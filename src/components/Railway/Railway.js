@@ -6,6 +6,7 @@ const Railway = ({
   chunks = [],
   scrollPosition,
   currentMediaDuration,
+  currentMediaTime,
   relativePositions = true
 }) => {
   const chunksTotalDuration = chunks.reduce((totalDuration, chunk) => {
@@ -36,6 +37,23 @@ const Railway = ({
       };
     });
   }
+
+  // determining playing head position
+  let playingHeadPosition;
+  let playingHeadRelativePosition;
+  if (currentMediaTime) {
+    if (relativePositions) {
+      const activeChunk = chunks.find(chunk => currentMediaTime >= chunk.begin && currentMediaTime <= chunk.end);
+      if (activeChunk) {
+        playingHeadPosition = activeChunk.relativeBegin + (currentMediaTime - activeChunk.begin);
+        playingHeadRelativePosition = playingHeadPosition / chunksTotalDuration;
+      }
+    }
+    else {
+      playingHeadPosition = currentMediaTime;
+      playingHeadRelativePosition = playingHeadPosition / currentMediaDuration;
+    }
+  }
   return (
     <aside className="dicto-player-Railway">
       <div className="chunks-container">
@@ -61,6 +79,14 @@ const Railway = ({
                 }
             </div>
           ))
+        }
+        {
+          currentMediaTime ?
+            <div className="playing-head"
+              style={{
+                top: (playingHeadRelativePosition * 100) + '%'
+              }} />
+          : null
         }
         {scrollPosition ?
           <div className="scrollbar"

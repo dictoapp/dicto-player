@@ -63,7 +63,8 @@ const ColumnsLayout = ({
         chunks={chunks}
         scrollPosition={scrollPosition}
         currentMediaDuration={currentMediaDuration}
-        currentMediaTime={currentMediaTime} />
+        currentMediaTime={currentMediaTime}
+        seekToSec={setCurrentMediaTime} />
       <section className="media-column">
         <MediaPlayer
           mediaUrl={mediaUrl}

@@ -7,7 +7,8 @@ const Railway = ({
   scrollPosition,
   currentMediaDuration,
   currentMediaTime,
-  relativePositions = true
+  relativePositions = true,
+  seekToSec
 }) => {
   const chunksTotalDuration = chunks.reduce((totalDuration, chunk) => {
     return totalDuration + chunk.duration;
@@ -59,26 +60,35 @@ const Railway = ({
       <div className="chunks-container">
         {
           positionnedChunks
-          .map(chunk => (
-            <div
-              key={chunk.id}
-              className={'chunk ' + (chunk.active ? 'active ' : ' ') + (chunk.matched === false ? 'hidden' : ' ')}
-              style={{
-                  top: (chunk.relativePosition * 100) + '%',
-                  height: (chunk.relativeDuration * 100) + '%'
-                }}>
-              {
-                  chunk.tags.map((tag, tagIndex) => (
-                    <span
-                      className="tag"
-                      key={tagIndex}
-                      style={{
-                        background: tag.color
-                      }} />
-                  ))
-                }
-            </div>
-          ))
+          .map(chunk => {
+            const onClick = e => {
+              const y = e.nativeEvent.offsetY;
+              const h = e.target.offsetHeight;
+              const seekTo = chunk.begin + chunk.duration * (y / h);
+              seekToSec({currentTime: seekTo});
+            };
+            return (
+              <div
+                key={chunk.id}
+                className={'chunk ' + (chunk.active ? 'active ' : ' ') + (chunk.matched === false ? 'hidden' : ' ')}
+                onClick={onClick}
+                style={{
+                    top: (chunk.relativePosition * 100) + '%',
+                    height: (chunk.relativeDuration * 100) + '%'
+                  }}>
+                {
+                    chunk.tags.map((tag, tagIndex) => (
+                      <span
+                        className="tag"
+                        key={tagIndex}
+                        style={{
+                          background: tag.color
+                        }} />
+                    ))
+                  }
+              </div>
+            );
+          })
         }
         {
           currentMediaTime ?

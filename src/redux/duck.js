@@ -109,7 +109,7 @@ const PLAYER_DEFAULT_STATE = {
   // currentMediaUrl: undefined,
   // currentMediaPosition : undefined,
   // currentMediaIsPlaying: false,
-  activeMediaDuration: 0,
+  currentMediaDuration: 0,
   informationModalVisible: false,
   scrollPosition: undefined
 };
@@ -125,14 +125,24 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
       if (action.composition.data && action.composition.data.length) {
         searchQuery = state.searchQuery;
         activeChunkIndex = state.activeChunkIndex;
+        let relPosSum = 0;
         return {
           ...state,
-          chunks: action.composition.data.map((chunk, id) => ({
-            ...chunk,
-            id,
-            active: activeChunkIndex && activeChunkIndex === id ? true : false,
-            matched: chunkMatchesSearchQuery(chunk, searchQuery)
-          }))
+          chunks: action.composition.data.reduce((finalChunks, chunk, id) => {
+            const duration = chunk.end - chunk.begin;
+            relPosSum += duration;
+            return [
+              ...finalChunks,
+              {
+                ...chunk,
+                id,
+                duration,
+                relativeBegin: relPosSum - duration,
+                active: activeChunkIndex && activeChunkIndex === id ? true : false,
+                matched: chunkMatchesSearchQuery(chunk, searchQuery)
+              }
+            ];
+          }, [])
         };
       }
       return state;
@@ -170,7 +180,7 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
     case SET_CURRENT_MEDIA_DURATION:
       return {
         ...state,
-        activeMediaDuration: action.duration
+        currentMediaDuration: action.duration.duration
       };
     case SET_CURRENT_MEDIA_TIME:
       const {
@@ -235,12 +245,13 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
       let scaledHeightPrct;
       // this is the visual scroll translated to a time-relative scale
       if (topChunk) {
-        const translatedTopTime = topChunk.begin + (topChunk.end - topChunk.begin) * topPortion;
+        const translatedTopTime = topChunk.relativeBegin + topChunk.duration * topPortion;
         let translatedBottomTime;
+        translatedBottomTime = translatedTopTime + 30;
         if (bottomChunk) {
-          translatedBottomTime = bottomChunk.begin + (bottomChunk.end - bottomChunk.begin) * bottomPortion;
+          translatedBottomTime = bottomChunk.relativeBegin + bottomChunk.duration * bottomPortion;
         }
-      else {
+        else {
           translatedBottomTime = topChunk.end;
         }
         scaledTopPrct = translatedTopTime / chunksTotalDuration * 100;
@@ -298,6 +309,8 @@ const compositionTags = (state) => state.compositionReducer.metadata && state.co
 
 const mediaUrl = (state) => state.compositionReducer.metadata && state.compositionReducer.metadata.mediaUrl;
 const displayMode = (state) => state.settingsReducer.displayMode;
+
+const currentMediaDuration = (state) => state.player.currentMediaDuration;
 const chunks = (state) => state.player.chunks;
 const currentMediaTime = (state) => state.player.currentMediaTime;
 const searchQuery = (state) => state.player.searchQuery;
@@ -312,6 +325,7 @@ export const selector = createStructuredSelector({
 
   mediaUrl,
   displayMode,
+  currentMediaDuration,
 
   currentMediaTime,
   searchQuery,

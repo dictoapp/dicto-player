@@ -4,25 +4,38 @@ import './Railway.scss';
 
 const Railway = ({
   chunks = [],
-  scrollPosition
+  scrollPosition,
+  currentMediaDuration,
+  relativePositions = true
 }) => {
   const chunksTotalDuration = chunks.reduce((totalDuration, chunk) => {
-    const chunkDuration = chunk.end - chunk.begin;
-    return totalDuration + chunkDuration;
+    return totalDuration + chunk.duration;
   }, 0);
-  // todo : implement that when handling montages
-  // let relPosSum = 0;
-  const positionnedChunks = chunks.map(chunk => {
-    const duration = (chunk.end - chunk.begin);
-    const relativeDuration = duration / chunksTotalDuration;
-    const relativePosition = chunk.begin / chunksTotalDuration; // relPosSum / chunksTotalDuration;
-    // relPosSum += duration;
-    return {
-      ...chunk,
-      relativeDuration,
-      relativePosition
-    };
-  });
+  let positionnedChunks;
+  // chunks are positionned relatively to the sum of all chunks durations
+  if (relativePositions) {
+    positionnedChunks = chunks.map(chunk => {
+      const relativeDuration = chunk.duration / chunksTotalDuration;
+      const relativePosition = chunk.relativeBegin / chunksTotalDuration;
+      return {
+        ...chunk,
+        relativeDuration,
+        relativePosition
+      };
+    });
+  // chunks are positionned relatively to their actual begining timecode
+  }
+ else {
+    positionnedChunks = chunks.map(chunk => {
+      const relativeDuration = chunk.duration / currentMediaDuration;
+      const relativePosition = chunk.begin / currentMediaDuration;
+      return {
+        ...chunk,
+        relativeDuration,
+        relativePosition
+      };
+    });
+  }
   return (
     <aside className="dicto-player-Railway">
       <div className="chunks-container">

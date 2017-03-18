@@ -36,6 +36,7 @@ const ColumnsLayout = ({
 
   mediaUrl,
   currentMediaTime,
+  currentMediaDuration,
   searchQuery,
   informationModalVisible,
   scrollPosition,
@@ -60,7 +61,8 @@ const ColumnsLayout = ({
       </aside>
       <Railway
         chunks={chunks}
-        scrollPosition={scrollPosition} />
+        scrollPosition={scrollPosition}
+        currentMediaDuration={currentMediaDuration} />
       <section className="media-column">
         <MediaPlayer
           mediaUrl={mediaUrl}

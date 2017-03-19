@@ -25,6 +25,8 @@ export const SET_INFORMATION_MODAL_VISIBILITY = '§dicto-player/SET_INFORMATION_
 export const SCROLL_UPDATE = '§dicto-player/SCROLL_UPDATE';
 export const SET_CHUNKS_POSITIONS = '§dicto-player/SET_CHUNKS_POSITIONS';
 export const TOGGLE_AUTOSCROLL = '§dicto-player/TOGGLE_AUTOSCROLL';
+export const TOGGLE_ISPLAYING = '§dicto-player/TOGGLE_ISPLAYING';
+export const SET_PLAYER_VOLUME = '§dicto-player/SET_PLAYER_VOLUME';
 /*
  * Action creators
  */
@@ -72,6 +74,13 @@ export const setChunksPositions = (positions) => ({
 export const toggleAutoScroll = () => ({
   type: TOGGLE_AUTOSCROLL
 });
+export const toggleIsPlaying = () => ({
+  type: TOGGLE_ISPLAYING
+});
+export const setPlayerVolume = (volume) => ({
+  type: SET_PLAYER_VOLUME,
+  volume
+});
 /*
  * Reducers
  */
@@ -118,7 +127,9 @@ const PLAYER_DEFAULT_STATE = {
   currentMediaDuration: 0,
   informationModalVisible: false,
   scrollPosition: undefined,
-  autoScrollMode: false
+  autoScrollMode: false,
+  isPlaying: false,
+  playerVolume: 1
 };
 function player(state = PLAYER_DEFAULT_STATE, action) {
   let searchQuery;
@@ -269,10 +280,20 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
         ...state,
         autoScrollMode: !state.autoScrollMode
       };
+    case TOGGLE_ISPLAYING:
+      return {
+        ...state,
+        isPlaying: !state.isPlaying
+      };
     case SET_INFORMATION_MODAL_VISIBILITY:
       return {
         ...state,
         informationModalVisible: action.state !== undefined ? action.state : !state.informationModalVisible
+      };
+    case SET_PLAYER_VOLUME:
+      return {
+        ...state,
+        playerVolume: action.volume
       };
     case SCROLL_UPDATE:
       const {top, scrollHeight, clientHeight, scrollTop} = action.values;
@@ -373,12 +394,14 @@ const activeChunk = (state) => state.player.activeChunk;
 const activeChunkIndex = (state) => state.player.activeChunkIndex;
 const activeChunkCompletion = (state) => state.player.activeChunkCompletion;
 const autoScrollMode = (state) => state.player.autoScrollMode;
+const playerVolume = (state) => state.player.playerVolume;
 
 const currentMediaTime = (state) => state.player.currentMediaTime;
 
 const searchQuery = (state) => state.player.searchQuery;
 const informationModalVisible = (state) => state.player.informationModalVisible;
 const scrollPosition = (state) => state.player.scrollPosition;
+const isPlaying = (state) => state.player.isPlaying;
 
 export const selector = createStructuredSelector({
   compositionTitle,
@@ -393,11 +416,13 @@ export const selector = createStructuredSelector({
   activeChunkCompletion,
   currentMediaDuration,
   autoScrollMode,
+  playerVolume,
 
   currentMediaTime,
   searchQuery,
   informationModalVisible,
   scrollPosition,
+  isPlaying,
 
   chunks
 });

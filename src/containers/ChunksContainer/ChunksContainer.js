@@ -100,9 +100,11 @@ class ChunksContainer extends Component {
     const {
       actions: {
         scrollUpdate,
-        setActiveChunk
+        setActiveChunk,
+        toggleIsPlaying
       },
-      chunks
+      chunks,
+      isPlaying
     } = this.props;
 
     const bindScrollbarRef = (scrollbar) => {
@@ -110,6 +112,13 @@ class ChunksContainer extends Component {
     };
     const bindContainerRef = (container) => {
       this.container = container;
+    };
+
+    const onChunkClick = (chunk) => {
+      setActiveChunk(chunk);
+      if (!isPlaying) {
+        toggleIsPlaying();
+      }
     };
 
     return (
@@ -129,7 +138,7 @@ class ChunksContainer extends Component {
               chunk={thatChunk}
               id={'chunk-' + index}
               key={index}
-              onClick={setActiveChunk}
+              onClick={onChunkClick}
               ref={bindChunkRef} />);
           })
         }

@@ -23,6 +23,18 @@ class CustomPlayPause extends Component {
         setTimeout(() => this.setState({seeking: false}), 200);
       }
     }
+
+    if (this.props.isPlaying !== nextProps.isPlaying) {
+      if (nextProps.isPlaying) {
+        this.props.media.play();
+      }
+ else {
+        this.props.media.pause();
+      }
+    }
+    if (this.props.playerVolume !== nextProps.playerVolume) {
+      this.props.media.setVolume(nextProps.playerVolume);
+    }
   }
 
   shouldComponentUpdate() {

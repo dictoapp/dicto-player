@@ -8,7 +8,11 @@ const Railway = ({
   currentMediaDuration,
   currentMediaTime,
   relativePositions = true,
-  seekToSec
+  seekToSec,
+  isPlaying,
+  toggleIsPlaying,
+  playerVolume,
+  setPlayerVolume
 }) => {
   const chunksTotalDuration = chunks.reduce((totalDuration, chunk) => {
     return totalDuration + chunk.duration;
@@ -55,8 +59,29 @@ const Railway = ({
       playingHeadRelativePosition = playingHeadPosition / currentMediaDuration;
     }
   }
+
+  const toggleVolume = () => {
+    // todo : set progressive volume setter
+    if (playerVolume === 0) {
+      setPlayerVolume(1);
+    }
+ else {
+      setPlayerVolume(0);
+    }
+  };
   return (
     <aside className="dicto-player-Railway">
+      <div className="player-ui">
+        <button onClick={toggleIsPlaying}>{isPlaying ? '❙❙' : '▶'}</button>
+        <button
+          id="volume-symbol"
+          className={playerVolume === 0 ? 'inactive' : 'active'}
+          onClick={toggleVolume}>
+          <span>❙</span>
+          <span>❙</span>
+          <span>❙</span>
+        </button>
+      </div>
       <div className="chunks-container">
         {
           positionnedChunks

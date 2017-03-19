@@ -1,11 +1,10 @@
 /* esling react/prefer-stateless-function: 0 */
 import React, {Component} from 'react';
-import {Media, Player, controls, withMediaProps} from 'react-media-player';
+import {Media, Player, withMediaProps} from 'react-media-player';
 
 import './MediaPlayer.scss';
 import MediaTimeHandler from './MediaTimeHandler';
 
-const {PlayPause, MuteUnmute} = controls;
 
 class MediaPlayer extends Component {
 
@@ -20,11 +19,16 @@ class MediaPlayer extends Component {
       mediaUrl,
       onDuration,
       onTimeUpdate,
-      currentMediaTime
+      currentMediaTime,
+      isPlaying,
+      playerVolume,
+      onClick
     } = this.props;
+    // console.log('is playing in media player', isPlaying);
+    const handleClick = () => onClick();
     return mediaUrl ? (
       <Media>
-        <div className="MediaPlayer">
+        <div onClick={handleClick} className="dicto-player-MediaPlayer">
           <div className="media-player">
             <Player
               src={mediaUrl}
@@ -32,9 +36,10 @@ class MediaPlayer extends Component {
               onTimeUpdate={onTimeUpdate} />
           </div>
           <div className="media-controls">
-            <PlayPause />
-            <MuteUnmute />
-            <MediaTimeHandler currentMediaTime={currentMediaTime} />
+            <MediaTimeHandler
+              isPlaying={isPlaying}
+              currentMediaTime={currentMediaTime}
+              playerVolume={playerVolume} />
           </div>
         </div>
       </Media>

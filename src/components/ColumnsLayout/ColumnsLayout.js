@@ -40,11 +40,15 @@ const ColumnsLayout = ({
   searchQuery,
   informationModalVisible,
   scrollPosition,
+  isPlaying,
+  playerVolume,
   actions: {
     setCurrentMediaDuration,
     setCurrentMediaTime,
     setSearchQuery,
-    setInformationModalVisibility
+    setInformationModalVisibility,
+    toggleIsPlaying,
+    setPlayerVolume
   }
 }) => {
   const closeModal = () => setInformationModalVisibility(false);
@@ -64,13 +68,20 @@ const ColumnsLayout = ({
         scrollPosition={scrollPosition}
         currentMediaDuration={currentMediaDuration}
         currentMediaTime={currentMediaTime}
-        seekToSec={setCurrentMediaTime} />
+        seekToSec={setCurrentMediaTime}
+        isPlaying={isPlaying}
+        toggleIsPlaying={toggleIsPlaying}
+        playerVolume={playerVolume}
+        setPlayerVolume={setPlayerVolume} />
       <section className="media-column">
         <MediaPlayer
           mediaUrl={mediaUrl}
           onDuration={setCurrentMediaDuration}
           onTimeUpdate={setCurrentMediaTime}
-          currentMediaTime={currentMediaTime} />
+          currentMediaTime={currentMediaTime}
+          isPlaying={isPlaying}
+          onClick={toggleIsPlaying}
+          playerVolume={playerVolume} />
       </section>
 
       {

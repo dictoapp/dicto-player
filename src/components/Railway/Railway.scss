@@ -7,7 +7,7 @@
     display: flex;
 
     width: 3%;
-    padding-top: $gutter-medium * 5.5;
+    padding-top: $gutter-medium * 4;
     padding-bottom: $gutter-medium;
 
     pointer-events: none;
@@ -100,5 +100,53 @@
         pointer-events: none;
 
         background: rgba(255,255,255,.8);
+    }
+
+    .player-ui
+    {
+        pointer-events: all;
+        position: absolute;
+        left: 0;
+        top: $gutter-medium * 1.5;
+        display: flex;
+        width: 100%;
+        flex-flow: column nowrap;
+        button
+        {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: $color-bg-light;
+            outline: none;
+            margin: 0;
+            margin-bottom: $gutter-small/2;
+            padding: 0;
+            text-align : center;
+            cursor: pointer;
+            &#volume-symbol
+            {
+                transition : all $time-short ease;
+                opacity: 0.3;
+                &.active
+                {
+                    opacity: 1;
+                }
+                span{
+                    transition: all $time-short ease;
+                }
+                span:nth-child(1) {
+                    font-size: .33em;
+                }
+                span:nth-child(2) {
+                    font-size : .66em;
+                }
+                &:hover
+                {
+                    span{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
     }
 }

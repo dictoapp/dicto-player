@@ -65,7 +65,8 @@ const Railway = ({
               const y = e.nativeEvent.offsetY;
               const h = e.target.offsetHeight;
               const seekTo = chunk.begin + chunk.duration * (y / h);
-              seekToSec({currentTime: seekTo});
+              // second argument declares that seek event is user-generated
+              seekToSec({currentTime: seekTo}, true);
             };
             return (
               <div

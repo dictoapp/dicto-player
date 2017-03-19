@@ -7,7 +7,7 @@
     display: flex;
 
     width: 3%;
-    padding-top: $gutter-medium;
+    padding-top: $gutter-medium * 5.5;
     padding-bottom: $gutter-medium;
 
     pointer-events: none;
@@ -23,6 +23,7 @@
         pointer-events: none;
 
         flex: 1;
+        overflow: hidden;
         .chunk
         {
             position: absolute;

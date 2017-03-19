@@ -110,6 +110,7 @@ const PLAYER_DEFAULT_STATE = {
   activeChunkIndex: undefined,
   activeChunkCompletion: undefined,
   currentMediaTime: 0,
+  currentDocumentTime: 0,
   // currentMediaType: undefined,
   // currentMediaUrl: undefined,
   // currentMediaPosition : undefined,
@@ -125,6 +126,8 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
   let chunks;
   let activeChunk;
   let activeChunkCompletion;
+  let finalTime;
+  let currentDocumentTime;
   switch (action.type) {
     case RESET_APP:
       return PLAYER_DEFAULT_STATE;
@@ -165,7 +168,8 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
       };
     case SET_ACTIVE_CHUNK:
       chunks = state.chunks.map((chunk, index) => {
-        if (chunk.id === action.chunk.id) {
+        if (chunk.id === action.chunk.id && chunk.matched) {
+          activeChunk = chunk;
           activeChunkIndex = index;
           return {
             ...chunk,
@@ -177,14 +181,30 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
           active: false
         };
       });
+      // case : the user try to select a non-matched chunk = search the next one
+      if (activeChunk === undefined) {
+        activeChunk = chunks.some((chunk, index) => {
+          if (chunk.matched && chunk.begin >= action.chunk.begin) {
+            finalTime = chunk.begin;
+            activeChunkIndex = index;
+            activeChunkCompletion = 0;
+            chunk.active = true;
+            return chunk;
+          }
+        });
+      }
+      if (activeChunk) {
+        currentDocumentTime = activeChunk.relativeBegin;
+      }
       return {
         ...state,
-        activeChunk: action.chunk,
+        activeChunk,
         activeChunkIndex,
+        activeChunkCompletion: 0,
         currentMediaTime: action.chunk.begin,
+        currentDocumentTime,
 
         autoScrollMode: true,
-        activeChunkCompletion: 0,
 
         chunks
       };
@@ -200,10 +220,12 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
         // progress,
         // ...
       } = action.playerState;
+      finalTime = currentTime;
+      const autoScrollMode = action.generatedByUser === true;
       // finding the active chunk
       chunks = state.chunks.map((chunk, index) => {
-        if (chunk.begin <= currentTime && chunk.end >= currentTime) {
-
+        // if there is a search query use it
+        if (chunk.begin <= currentTime && chunk.end >= currentTime && chunk.matched) {
           activeChunkIndex = index;
           activeChunk = {...chunk};
           activeChunkCompletion = (currentTime - activeChunk.begin) / activeChunk.duration;
@@ -217,10 +239,25 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
           active: false
         };
       });
-      const autoScrollMode = action.generatedByUser === true;
+      // case between chunks = search the next one
+      if (activeChunk === undefined) {
+        activeChunk = chunks.some((chunk, index) => {
+          if (chunk.matched && chunk.begin >= currentTime) {
+            finalTime = chunk.begin;
+            activeChunkIndex = index;
+            activeChunkCompletion = 0;
+            chunk.active = true;
+            return chunk;
+          }
+        });
+      }
+      if (activeChunk) {
+        currentDocumentTime = activeChunk.relativeBegin + (finalTime - activeChunk.begin);
+      }
       return {
         ...state,
-        currentMediaTime: currentTime,
+        currentMediaTime: finalTime,
+        currentDocumentTime,
         activeChunkIndex,
         activeChunkCompletion,
         activeChunk,

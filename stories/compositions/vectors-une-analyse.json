@@ -1,0 +1,1862 @@
+{
+     "metadata": {
+          "title": "Vectors - une analyse",
+          "slug": "vectors-une-analyse",
+          "mediaUrl": "https://vimeo.com/180025973",
+          "type": "transcription",
+          "tags": [
+               {
+                    "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206942"
+               },
+               {
+                    "name": "design",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206943"
+               },
+               {
+                    "name": "plus accessible",
+                    "category": "statut",
+                    "color": "#b7b378",
+                    "$$hashKey": "object:206944"
+               },
+               {
+                    "name": "étude des médias",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206945"
+               },
+               {
+                    "name": "texte",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206946"
+               },
+               {
+                    "name": "hypertexte",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206947"
+               },
+               {
+                    "name": "arts plastiques",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206948"
+               },
+               {
+                    "name": "image",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206949"
+               },
+               {
+                    "name": "histoire",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206950"
+               },
+               {
+                    "name": "calligraphie",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206951"
+               },
+               {
+                    "name": "dessin",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206952"
+               },
+               {
+                    "name": "reproductions image",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206953"
+               },
+               {
+                    "name": "études théâtrales",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206954"
+               },
+               {
+                    "name": "modélisation 3D",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206955"
+               },
+               {
+                    "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206956"
+               },
+               {
+                    "name": "?",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206957"
+               },
+               {
+                    "name": "hyperlien",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206958"
+               },
+               {
+                    "name": "anthropologie",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206959"
+               },
+               {
+                    "name": "architecture",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206960"
+               },
+               {
+                    "name": "carte",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206961"
+               },
+               {
+                    "name": "photographie",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206962"
+               },
+               {
+                    "name": "format",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206963"
+               },
+               {
+                    "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206964"
+               },
+               {
+                    "name": "métrage vidéo",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206965"
+               },
+               {
+                    "name": "graphe",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206966"
+               },
+               {
+                    "name": "audio",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206967"
+               },
+               {
+                    "name": "vidéo",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206968"
+               },
+               {
+                    "name": "études cinématographiques",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206969"
+               },
+               {
+                    "name": "études littéraires",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206970"
+               },
+               {
+                    "name": "",
+                    "category": "No category",
+                    "color": "#c4580",
+                    "$$hashKey": "object:206971"
+               },
+               {
+                    "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206972"
+               },
+               {
+                    "name": "géographie",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206973"
+               },
+               {
+                    "name": "philosophie",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206974"
+               },
+               {
+                    "name": "esthétique",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206975"
+               },
+               {
+                    "name": "diagrammes",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206976"
+               },
+               {
+                    "name": "sciences cognitives",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206977"
+               },
+               {
+                    "name": "multi-fenêtres",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206978"
+               },
+               {
+                    "name": "sociologie",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206979"
+               },
+               {
+                    "name": "histoire de l'art",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206980"
+               },
+               {
+                    "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206981"
+               },
+               {
+                    "name": "sciences politiques",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206982"
+               },
+               {
+                    "name": "cultural studies",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206983"
+               },
+               {
+                    "name": "ethnographie",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206984"
+               },
+               {
+                    "name": "urbanisme",
+                    "category": "discipline",
+                    "color": "#5cbd8f",
+                    "$$hashKey": "object:206985"
+               },
+               {
+                    "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206986"
+               },
+               {
+                    "name": "voix off",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206987"
+               },
+               {
+                    "name": "musique",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206988"
+               },
+               {
+                    "name": "Volume 4 Issue 1, Fall 2013 (Current Projects  - Current Issue)",
+                    "category": "numéro",
+                    "color": "#e05438",
+                    "$$hashKey": "object:206989"
+               },
+               {
+                    "name": "frise",
+                    "category": "format",
+                    "color": "#7b06bb",
+                    "$$hashKey": "object:206990"
+               }
+          ],
+          "tagCategories": [
+               {
+                    "name": "numéro",
+                    "color": "#e05438"
+               },
+               {
+                    "name": "discipline",
+                    "color": "#5cbd8f"
+               },
+               {
+                    "name": "statut",
+                    "color": "#b7b378"
+               },
+               {
+                    "name": "format",
+                    "color": "#7b06bb"
+               },
+               {
+                    "name": "No category",
+                    "color": "#c4580"
+               }
+          ],
+          "mediaDuration": 9301,
+          "mediaId": "180025973",
+          "curator": "Robin de Mourat"
+     },
+     "data": [
+          {
+               "content": "# [In The News](http://vectorsjournal.org/projects/index.php?project=50)\n\n*Michal Migurski & Eric Rodenbeck*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 8.771880187113325,
+               "end": 32.187,
+               "endSrtFormat": "00:00:32,187",
+               "beginSrtFormat": "00:00:08,771",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "design",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "plus accessible",
+                         "category": "statut",
+                         "color": "#b7b378"
+                    }
+               ]
+          },
+          {
+               "content": "# [Investigating Imaginary Evidence](http://vectorsjournal.org/projects/index.php?project=2)\n\n*Mary Agnes Krell*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 32.78358113304295,
+               "end": 170.474,
+               "endSrtFormat": "00:02:50,474",
+               "beginSrtFormat": "00:00:32,783",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Jenny Holzer at the Neue Nationalgalerie](http://vectorsjournal.org/projects/index.php?project=4)\n\n*Ehren Fordyce & Gwen Allen*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 171.6667521148425,
+               "end": 387.442,
+               "endSrtFormat": "00:06:27,442",
+               "beginSrtFormat": "00:02:51,666",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "arts plastiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Narrating Bits: Encounters between Humans and Intelligent Machines](http://vectorsjournal.org/projects/index.php?project=6)\n\n*N. Katherine Hayles*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 388.0383875929251,
+               "end": 612.754,
+               "endSrtFormat": "00:10:12,754",
+               "beginSrtFormat": "00:06:28,038",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Stolen Time Archive](http://vectorsjournal.org/projects/index.php?project=10)\n\n*Alice Gambrell*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 612.878,
+               "end": 775.119,
+               "beginSrtFormat": "00:10:12,878",
+               "endSrtFormat": "00:12:55,119",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "calligraphie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Menorah of Fang Bang Lu](http://vectorsjournal.org/projects/index.php?project=40)\n\n*Andrew Jakubowicz*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 775.5547826086956,
+               "end": 907.43,
+               "beginSrtFormat": "00:12:55,554",
+               "endSrtFormat": "00:15:07,430",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Unmaking of Markets: A Composite Visual History](http://vectorsjournal.org/projects/index.php?project=5)\n\n*Rebecca Jean Emigh*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 907.796,
+               "end": 1130.35,
+               "beginSrtFormat": "00:15:07,796",
+               "endSrtFormat": "00:18:50,350",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "reproductions image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Virtual Vaudeville](http://vectorsjournal.org/projects/index.php?project=39)\n\n*David Saltz*\n\nVolume 1 Issue 1, Fall 2005 (Evidence)",
+               "begin": 1131.776,
+               "end": 1487.99,
+               "beginSrtFormat": "00:18:51,776",
+               "endSrtFormat": "00:24:47,990",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 1, Fall 2005 (Evidence)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "études théâtrales",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "modélisation 3D",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Cultivating Pasadena: From Roses to Redevelopment](http://vectorsjournal.org/projects/index.php?project=55)\n\n*The Labyrinth Project*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 1488.47,
+               "end": 1683.619,
+               "beginSrtFormat": "00:24:48,470",
+               "endSrtFormat": "00:28:03,619",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "?",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "plus accessible",
+                         "category": "statut",
+                         "color": "#b7b378"
+                    }
+               ]
+          },
+          {
+               "content": "# [Mobile Figures](http://vectorsjournal.org/projects/index.php?project=54)\n\n*David Lloyd*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 1683.619,
+               "end": 1927.71,
+               "beginSrtFormat": "00:28:03,619",
+               "endSrtFormat": "00:32:07,710",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hyperlien",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [PlaceStorming: v. 3.0](http://vectorsjournal.org/projects/index.php?project=8)\n\n*Jane McGonigal*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 1927.72,
+               "end": 1949.73,
+               "beginSrtFormat": "00:32:07,720",
+               "endSrtFormat": "00:32:29,730",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "design",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "anthropologie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "plus accessible",
+                         "category": "statut",
+                         "color": "#b7b378"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Guantanamobile Project](http://vectorsjournal.org/projects/index.php?project=3)\n\n*Lisa Lynch & Elena Razlogova*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 1950.16,
+               "end": 1969.867,
+               "beginSrtFormat": "00:32:30,160",
+               "endSrtFormat": "00:32:49,867",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "plus accessible",
+                         "category": "statut",
+                         "color": "#b7b378"
+                    }
+               ]
+          },
+          {
+               "content": "# [Wegzeit: The Geometry of Relative Distance](http://vectorsjournal.org/projects/index.php?project=64)\n\n*Dietmar Offenhuber*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 1969.968,
+               "end": 2230.564,
+               "beginSrtFormat": "00:32:49,968",
+               "endSrtFormat": "00:37:10,564",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "architecture",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [WiFi.Bedouin: This is not the web without wires..](http://vectorsjournal.org/projects/index.php?project=12)\n\n*Julian Bleecker*\n\nVolume 1 Issue 2, Spring 2006 (Mobility)",
+               "begin": 2230.802,
+               "end": 2403.695,
+               "beginSrtFormat": "00:37:10,802",
+               "endSrtFormat": "00:40:03,695",
+               "tags": [
+                    {
+                         "name": "Volume 1 Issue 2, Spring 2006 (Mobility)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "format",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Cast-offs from the Golden Age](http://vectorsjournal.org/projects/index.php?project=66)\n\n*Melanie Swalwell*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 2404.578117647059,
+               "end": 2623.353,
+               "beginSrtFormat": "00:40:04,578",
+               "endSrtFormat": "00:43:43,353",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "modélisation 3D",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Crowds](http://vectorsjournal.org/projects/index.php?project=74)\n\n*Jeffrey T. Schnapp*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 2623.943,
+               "end": 2755.292,
+               "beginSrtFormat": "00:43:43,943",
+               "endSrtFormat": "00:45:55,292",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Digital Dynamics Across Cultures](http://vectorsjournal.org/projects/index.php?project=67)\n\n*Kim Christen & Chris Cooney*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 2755.305,
+               "end": 2938.293,
+               "beginSrtFormat": "00:45:55,305",
+               "endSrtFormat": "00:48:58,293",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "anthropologie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "graphe",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "audio",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Hurricane Digital Memory Bank: Preserving the Stories of Katrina, Rita, and Wilma](http://vectorsjournal.org/projects/index.php?project=75)\n\n*Center for History and New Media*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 2938.359,
+               "end": 3109.978,
+               "beginSrtFormat": "00:48:58,359",
+               "endSrtFormat": "00:51:49,978",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Objects of Media Studies](http://vectorsjournal.org/projects/index.php?project=65)\n\n*Amelie Hastie*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 3109.978,
+               "end": 3368.872,
+               "beginSrtFormat": "00:51:49,978",
+               "endSrtFormat": "00:56:08,872",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Panorama Ephemera](http://vectorsjournal.org/projects/index.php?project=58)\n\n*Rick Prelinger*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 3368.872,
+               "end": 3499.765,
+               "beginSrtFormat": "00:56:08,872",
+               "endSrtFormat": "00:58:19,765",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "études cinématographiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Slavery's Ephemera: The Contemporary Life of the Antebellum Plantation](http://vectorsjournal.org/projects/index.php?project=56)\n\n*Judith Jackson Fossett*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 3499.765,
+               "end": 3666.659,
+               "beginSrtFormat": "00:58:19,765",
+               "endSrtFormat": "01:01:06,659",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Agrippa Files: An Online Archive of Agrippa (a book of the dead)](http://vectorsjournal.org/projects/index.php?project=77)\n\n*Agrippa Files Editorial Team*\n\nVolume 2 Issue 1, Fall 2006 (Ephemera)",
+               "begin": 3666.923,
+               "end": 3858.817,
+               "beginSrtFormat": "01:01:06,923",
+               "endSrtFormat": "01:04:18,817",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 1, Fall 2006 (Ephemera)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "arts plastiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "études littéraires",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "reproductions image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "",
+                         "category": "No category",
+                         "color": "#c4580"
+                    }
+               ]
+          },
+          {
+               "content": "# [Dead Reckoning: Aerial Perception and the Social Construction of Targets](http://vectorsjournal.org/projects/index.php?project=11)\n\n*Caren Kaplan*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 3858.827,
+               "end": 4309.446,
+               "beginSrtFormat": "01:04:18,827",
+               "endSrtFormat": "01:11:49,446",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "géographie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "modélisation 3D",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Enfolding and Unfolding: An Aesthetics for the Information Age](http://vectorsjournal.org/projects/index.php?project=72)\n\n*Laura Marks*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 4309.446,
+               "end": 4585.938,
+               "beginSrtFormat": "01:11:49,446",
+               "endSrtFormat": "01:16:25,938",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "philosophie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "esthétique",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "diagrammes",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Malperception](http://vectorsjournal.org/projects/index.php?project=71)\n\n*Perry Hoberman & Donald Hoffman*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 4586.51,
+               "end": 4791.236,
+               "beginSrtFormat": "01:16:26,510",
+               "endSrtFormat": "01:19:51,236",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "sciences cognitives",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "arts plastiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "multi-fenêtres",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Public Secrets](http://vectorsjournal.org/projects/index.php?project=57)\n\n*Sharon Daniel*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 4791.513,
+               "end": 5186.275,
+               "beginSrtFormat": "01:19:51,513",
+               "endSrtFormat": "01:26:26,275",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "sociologie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "audio",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Virtual Window Interactive](http://vectorsjournal.org/projects/index.php?project=79)\n\n*Anne Friedberg*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 5186.505,
+               "end": 5345.641,
+               "beginSrtFormat": "01:26:26,505",
+               "endSrtFormat": "01:29:05,641",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire de l'art",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "reproductions image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Tracking Theory: The Synthetic Philosophy of The Glance](http://vectorsjournal.org/projects/index.php?project=78)\n\n*Eric S. Faden*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 5345.641,
+               "end": 5484.541,
+               "beginSrtFormat": "01:29:05,641",
+               "endSrtFormat": "01:31:24,541",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "philosophie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Unmarked Planes and Hidden Geographies](http://vectorsjournal.org/projects/index.php?project=59)\n\n*Trevor Paglen*\n\nVolume 2 Issue 2, Winter 2007 (Perception)",
+               "begin": 5484.615,
+               "end": 5568.371,
+               "beginSrtFormat": "01:31:24,615",
+               "endSrtFormat": "01:32:48,371",
+               "tags": [
+                    {
+                         "name": "Volume 2 Issue 2, Winter 2007 (Perception)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "arts plastiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "géographie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Blue Velvet: Re-dressing New Orleans in Katrina's wake](http://vectorsjournal.org/projects/index.php?project=82)\n\n*David Theo Goldberg & Stefka Hristova*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 5568.462,
+               "end": 5890.557,
+               "beginSrtFormat": "01:32:48,462",
+               "endSrtFormat": "01:38:10,557",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "?",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "reproductions image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Deliberative Democracy and Difference](http://vectorsjournal.org/projects/index.php?project=81)\n\n*Mark Kann*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 5890.631,
+               "end": 6126.79,
+               "beginSrtFormat": "01:38:10,631",
+               "endSrtFormat": "01:42:06,790",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "sciences politiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Killer Entertainments](http://vectorsjournal.org/projects/index.php?project=86)\n\n*Jennifer Terry*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 6126.791,
+               "end": 6288.626,
+               "beginSrtFormat": "01:42:06,791",
+               "endSrtFormat": "01:44:48,626",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "cultural studies",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Nation on the Move](http://vectorsjournal.org/projects/index.php?project=83)\n\n*Minoo Moallem*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 6288.626,
+               "end": 6513.987,
+               "beginSrtFormat": "01:44:48,626",
+               "endSrtFormat": "01:48:33,987",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "ethnographie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "reproductions image",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Programmed Visions](http://vectorsjournal.org/projects/index.php?project=85)\n\n*Wendy Hui Kyong Chun*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 6513.993,
+               "end": 6666.3,
+               "beginSrtFormat": "01:48:33,993",
+               "endSrtFormat": "01:51:06,300",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "philosophie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The RED Project: Rendering Electromagnetic Distributions](http://vectorsjournal.org/projects/index.php?project=87)\n\n*Christian Sandvig*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 6666.384,
+               "end": 6691.708,
+               "beginSrtFormat": "01:51:06,384",
+               "endSrtFormat": "01:51:31,708",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "urbanisme",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "plus accessible",
+                         "category": "statut",
+                         "color": "#b7b378"
+                    }
+               ]
+          },
+          {
+               "content": "# [ThoughtMesh: Tag your writing. Join the conversation.](http://vectorsjournal.org/projects/index.php?project=84)\n\n*Jon Ippolito & Craig Dietrich*\n\nVolume 3 Issue 1, Fall 2007 (Difference)",
+               "begin": 6691.714,
+               "end": 6826.827,
+               "beginSrtFormat": "01:51:31,714",
+               "endSrtFormat": "01:53:46,827",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 1, Fall 2007 (Difference)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "étude des médias",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "design",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Blood Sugar](http://vectorsjournal.org/projects/index.php?project=95)\n\n*Sharon Daniel & Erik Loyer*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 6826.827,
+               "end": 7182.245,
+               "beginSrtFormat": "01:53:46,827",
+               "endSrtFormat": "01:59:42,245",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "sociologie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "audio",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "voix off",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Critical Sections](http://vectorsjournal.org/projects/index.php?project=88)\n\n*Greg J. Smith*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 7182.291,
+               "end": 7561.706,
+               "beginSrtFormat": "01:59:42,291",
+               "endSrtFormat": "02:06:01,706",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "études cinématographiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "architecture",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Digital Futures](http://vectorsjournal.org/projects/index.php?project=90)\n\n*Elizabeth Povinelli*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 7561.759,
+               "end": 7762.761,
+               "beginSrtFormat": "02:06:01,759",
+               "endSrtFormat": "02:09:22,761",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "anthropologie",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "audio",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "voix off",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Gidget on the Couch](http://vectorsjournal.org/projects/index.php?project=96)\n\n*Peter Lunenfeld*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 7762.835,
+               "end": 7853.329,
+               "beginSrtFormat": "02:09:22,835",
+               "endSrtFormat": "02:10:53,329",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "architecture",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [shi jian: time](http://vectorsjournal.org/projects/index.php?project=91&thread=projectcredits)\n\n*Mark Hansen*\n\nVolume 3 Issue 2, Summer 2012 (Memory).",
+               "begin": 7853.329,
+               "end": 8127.396,
+               "beginSrtFormat": "02:10:53,329",
+               "endSrtFormat": "02:15:27,396",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "arts plastiques",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [T-RACES: Testbed for the Redlining Archives of California's Exclusionary Spaces](http://vectorsjournal.org/projects/index.php?project=93)\n\n*David Theo Goldberg & Richard Marciano*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 8127.42,
+               "end": 8439.16,
+               "beginSrtFormat": "02:15:27,420",
+               "endSrtFormat": "02:20:39,160",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "urbanisme",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Technologies of History](http://vectorsjournal.org/projects/index.php?project=89)\n\n*Steve Anderson*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 8439.173,
+               "end": 8644.996,
+               "beginSrtFormat": "02:20:39,173",
+               "endSrtFormat": "02:24:04,996",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "métrage vidéo",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "musique",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# irtual Tourisms](http://vectorsjournal.org/projects/index.php?project=94\n\n*Megan Kendrick*\n\nVolume 3 Issue 2, Summer 2012 (Memory)",
+               "begin": 8644.999,
+               "end": 8812.534,
+               "beginSrtFormat": "02:24:04,999",
+               "endSrtFormat": "02:26:52,534",
+               "tags": [
+                    {
+                         "name": "Volume 3 Issue 2, Summer 2012 (Memory)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "photographie",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [The Roaring 'Twenties: an interactive exploration of the historical soundscape of New York City](http://vectorsjournal.org/projects/index.php?project=98)\n\n*Emily Thompson*\n\nVolume 4 Issue 1, Fall 2013 (Current Projects  - Current Issue)",
+               "begin": 8812.609,
+               "end": 8997.23,
+               "beginSrtFormat": "02:26:52,609",
+               "endSrtFormat": "02:29:57,230",
+               "tags": [
+                    {
+                         "name": "Volume 4 Issue 1, Fall 2013 (Current Projects  - Current Issue)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "carte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "audio",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "frise",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# [Totality for Kids](http://vectorsjournal.org/projects/index.php?project=99)\n\n*McKenzie Wark*\n\nVolume 4 Issue 1, Fall 2013 (Current Projects  - Current Issue)",
+               "begin": 8997.409,
+               "end": 9154.83,
+               "beginSrtFormat": "02:29:57,409",
+               "endSrtFormat": "02:32:34,830",
+               "tags": [
+                    {
+                         "name": "Volume 4 Issue 1, Fall 2013 (Current Projects  - Current Issue)",
+                         "category": "numéro",
+                         "color": "#e05438"
+                    },
+                    {
+                         "name": "histoire de l'art",
+                         "category": "discipline",
+                         "color": "#5cbd8f"
+                    },
+                    {
+                         "name": "dessin",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "musique",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "texte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    },
+                    {
+                         "name": "hypertexte",
+                         "category": "format",
+                         "color": "#7b06bb"
+                    }
+               ]
+          },
+          {
+               "content": "# Vectors space\n\n*Index interactif du journal*",
+               "begin": 9154.83,
+               "end": 9300.999999999995,
+               "beginSrtFormat": "02:32:34,830",
+               "endSrtFormat": "02:35:00,999"
+          }
+     ]
+}

@@ -30,3 +30,23 @@ storiesOf('Dicto player', module)
       }}
     />
   ))
+  .add('relative position', () => (
+    <div style={{background: 'black'}}>
+      <div
+        style={{
+          position: 'fixed',
+          top: '10%',
+          left: '10%',
+          width: '80%',
+          height: '80%',
+        }}
+      >
+        <Player 
+          composition={transcription1}
+          settings={{
+            displayMode: 'columns'
+          }}
+        />
+      </div>
+    </div>
+  ))

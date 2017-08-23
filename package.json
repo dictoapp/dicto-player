@@ -2,7 +2,7 @@
   "name": "dicto-player",
   "version": "0.0.1",
   "description": "transcripted video player",
-  "main": "build/Player.js",
+  "main": "build/application.js",
   "scripts": {
     "build": "rm -rf build && kotatsu build client ./src/Player.js -o build --config ./webpack.config.js --babel --minify",
     "lint": "eslint --fix src",

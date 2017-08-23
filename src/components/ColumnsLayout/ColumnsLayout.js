@@ -35,7 +35,7 @@ const ColumnsLayout = ({
   compositionAuthors,
 
   settings: {
-    allowEmbed
+    allowEmbed = true
   },
 
   mediaUrl,
@@ -60,7 +60,7 @@ const ColumnsLayout = ({
     <section className="dicto-player-ColumnsLayout">
       <aside className="aside-column">
         <div className="header">
-          <h1>{compositionTitle || 'Dicto'} {allowEmbed && <InfoTip onClick={setInformationModalVisibility}} /> </h1>
+          <h1>{compositionTitle || 'Dicto'} {allowEmbed && <InfoTip onClick={setInformationModalVisibility} />} </h1>
           <SearchComposition
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery} />
@@ -81,7 +81,7 @@ const ColumnsLayout = ({
         <MediaPlayer
           mediaUrl={mediaUrl}
           onDuration={setCurrentMediaDuration}
-          onTimeUpdate={setCurrentMediaTime}
+          o gnTimeUpdate={setCurrentMediaTime}
           currentMediaTime={currentMediaTime}
           isPlaying={isPlaying}
           onClick={toggleIsPlaying}
@@ -94,6 +94,7 @@ const ColumnsLayout = ({
             isOpen={informationModalVisible}
             onRequestClose={closeModal}
             shouldCloseOnOverlayClick
+            className="dicto-player-modal"
             contentLabel="Information">
             <h2>{compositionTitle || 'Dicto'}</h2>
 

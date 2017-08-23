@@ -51,19 +51,20 @@
         display: flex;
         overflow: hidden;
 
+        cursor: pointer;
+
         background: black;
 
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
     }
     /*
    * SECONDARY LAYOUT
    */
 }
 
-.ReactModal__Content
+.dicto-player-modal
 {
     font-family: 'Lato', sans-serif;
 

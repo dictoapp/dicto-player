@@ -10,7 +10,7 @@
     "test": "mocha --compilers js:babel-core/register -R spec --recursive $(find src -name '*.spec.js')",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "git-add-build": "git add build",
+    "git-add-build": "git add dist",
     "build-dicto-player-app": "node services/playerAppBuilder",
     "build-examples": "npm run build; npm run build-dicto-player-app; node examples"
   },

@@ -115,7 +115,8 @@ class ChunksContainer extends Component {
       actions: {
         // scrollUpdate,
         setActiveChunk,
-        toggleIsPlaying
+        toggleIsPlaying,
+        setSearchQuery,
       },
       chunks,
       isPlaying
@@ -151,6 +152,7 @@ class ChunksContainer extends Component {
             return (<Chunk
               chunk={thatChunk}
               id={'chunk-' + index}
+              onTagQuery={setSearchQuery}
               key={index}
               onClick={onChunkClick}
               ref={bindChunkRef} />);

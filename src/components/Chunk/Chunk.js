@@ -28,6 +28,7 @@ class Chunk extends Component {
     const {
       chunk = {},
       onClick,
+      onTagQuery,
       id
     } = this.props;
     const onChunkClick = () => onClick(chunk);
@@ -48,17 +49,21 @@ class Chunk extends Component {
         {chunk.tags ?
           <div className="tags-container">
             {
-            chunk.tags.map((tag, index) => (
-              <span
-                className="tag"
-                key={index}
-                style={{
-                  background: tag.color,
-                  color: getContrastYIQ(tag.color)
-                }}>
-                {tag.name} ({tag.category})
-              </span>
-            ))
+            chunk.tags.map((tag, index) => {
+              const onTagClick = () => onTagQuery(`${tag.name}`);
+              return (
+                <span
+                  className="tag"
+                  key={index}
+                  onClick={onTagClick}
+                  style={{
+                    background: tag.color,
+                    color: getContrastYIQ(tag.color)
+                  }}>
+                  {tag.name} ({tag.category})
+                </span>
+              );
+})
           }
           </div> : null}
       </section>

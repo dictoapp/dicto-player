@@ -1162,6 +1162,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
           _props$actions = _props.actions,
           setActiveChunk = _props$actions.setActiveChunk,
           toggleIsPlaying = _props$actions.toggleIsPlaying,
+          setSearchQuery = _props$actions.setSearchQuery,
           chunks = _props.chunks,
           isPlaying = _props.isPlaying;
 
@@ -1198,6 +1199,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
             return _react2.default.createElement(_Chunk2.default, {
               chunk: thatChunk,
               id: 'chunk-' + index,
+              onTagQuery: setSearchQuery,
               key: index,
               onClick: onChunkClick,
               ref: bindChunkRef });
@@ -1294,6 +1296,7 @@ var Chunk = function (_Component) {
           _props$chunk = _props.chunk,
           chunk = _props$chunk === undefined ? {} : _props$chunk,
           onClick = _props.onClick,
+          onTagQuery = _props.onTagQuery,
           id = _props.id;
 
       var onChunkClick = function onChunkClick() {
@@ -1320,11 +1323,15 @@ var Chunk = function (_Component) {
           'div',
           { className: 'tags-container' },
           chunk.tags.map(function (tag, index) {
+            var onTagClick = function onTagClick() {
+              return onTagQuery('' + tag.name);
+            };
             return _react2.default.createElement(
               'span',
               {
                 className: 'tag',
                 key: index,
+                onClick: onTagClick,
                 style: {
                   background: tag.color,
                   color: (0, _getContrastYIQ2.default)(tag.color)

@@ -17,7 +17,7 @@ const Railway = ({
   const chunksTotalDuration = chunks.reduce((totalDuration, chunk) => {
     return totalDuration + chunk.duration;
   }, 0);
-  let positionnedChunks;
+  let positionnedChunks = [];
   // chunks are positionned relatively to the sum of all chunks durations
   if (relativePositions) {
     positionnedChunks = chunks.map(chunk => {
@@ -102,7 +102,7 @@ const Railway = ({
                     top: (chunk.relativePosition * 100) + '%',
                     height: (chunk.relativeDuration * 100) + '%'
                   }}>
-                {
+                { chunk.tags &&
                     chunk.tags.map((tag, tagIndex) => (
                       <span
                         className="tag"
@@ -118,14 +118,16 @@ const Railway = ({
         }
         {
           currentMediaTime ?
-            <div className="playing-head"
+            <div
+              className="playing-head"
               style={{
                 top: (playingHeadRelativePosition * 100) + '%'
               }} />
           : null
         }
         {scrollPosition ?
-          <div className="scrollbar"
+          <div
+            className="scrollbar"
             style={{
               top: scrollPosition.scaledTopPrct + '%',
               height: scrollPosition.scaledHeightPrct + '%'

@@ -1,0 +1,277 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);.dicto-player-ColumnsLayout {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #e5e1da;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  /*
+   * SECONDARY LAYOUT
+   */ }
+  .dicto-player-ColumnsLayout .aside-column,
+  .dicto-player-ColumnsLayout .media-column {
+    height: 100%;
+    flex: 1; }
+  .dicto-player-ColumnsLayout .aside-column {
+    display: flex;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    justify-content: stretch; }
+    .dicto-player-ColumnsLayout .aside-column .header {
+      padding: 1em; }
+    .dicto-player-ColumnsLayout .aside-column .dicto-player-ChunksContainer {
+      flex: 1; }
+  .dicto-player-ColumnsLayout .media-column {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    cursor: pointer;
+    background: black;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center; }
+
+.dicto-player-modal {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  padding: 1.66em;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  border: none !important;
+  background: #e5e1da !important;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  outline: none; }
+  .dicto-player-modal h2 {
+    margin: 0; }
+  .dicto-player-modal .modal-content-wrapper {
+    display: flex;
+    flex: 1;
+    flex-flow: row nowrap;
+    align-items: stretch; }
+    .dicto-player-modal .modal-content-wrapper .modal-column {
+      flex: 1; }
+      .dicto-player-modal .modal-content-wrapper .modal-column .modal-section {
+        margin-bottom: 1.66em; }
+    .dicto-player-modal .modal-content-wrapper .to-copy {
+      padding: 1em;
+      cursor: pointer;
+      -webkit-user-select: all;
+      /* Chrome all / Safari all */
+      -moz-user-select: all;
+      /* Firefox all */
+      -ms-user-select: all;
+      /* IE 10+ */
+      user-select: all;
+      /* Likely future */
+      background: #b4b4a6; }
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #b4b4a6;
+  background: #53544d; }
+
+::selection {
+  color: #b4b4a6;
+  background: #53544d; }
+.dicto-player-Chunk {
+  overflow: hidden;
+  max-height: 1000000px;
+  margin: 1em;
+  margin-top: 0;
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background: #d0cfbf;
+  /*
+     * SECONDARY LAYOUT
+     */
+  /*
+   * COMPONENTS
+   */ }
+  .dicto-player-Chunk:hover {
+    background: #b4b4a6; }
+  .dicto-player-Chunk.active {
+    color: #e5e1da;
+    background: #53544d; }
+  .dicto-player-Chunk.hidden {
+    max-height: 10px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: rgba(0, 0, 0, 1e-06); }
+  .dicto-player-Chunk .contents-container p,
+  .dicto-player-Chunk .contents-container h1,
+  .dicto-player-Chunk .contents-container h2,
+  .dicto-player-Chunk .contents-container h3,
+  .dicto-player-Chunk .contents-container h4,
+  .dicto-player-Chunk .contents-container h5,
+  .dicto-player-Chunk .contents-container h6,
+  .dicto-player-Chunk .contents-container ul {
+    margin-top: 0; }
+  .dicto-player-Chunk .contents-container h1 {
+    font-size: 1.7576em; }
+  .dicto-player-Chunk .contents-container h2, .dicto-player-Chunk .contents-container h3, .dicto-player-Chunk .contents-container h4 {
+    font-size: 1.352em; }
+  .dicto-player-Chunk .contents-container a, .dicto-player-Chunk .contents-container a:visited {
+    color: #848777; }
+  .dicto-player-Chunk .contents-container a:hover {
+    color: #53544d; }
+  .dicto-player-Chunk .tags-container {
+    margin-top: 1.66em;
+    margin-bottom: 1.66em;
+    display: flex;
+    flex-flow: row wrap; }
+  .dicto-player-Chunk .tag {
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.4em;
+    font-size: 0.8em; }
+.dicto-player-ChunksContainer {
+  overflow-y: auto; }
+.dicto-player-MediaPlayer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  .dicto-player-MediaPlayer .media-player {
+    pointer-events: none;
+    height: 100%; }
+  .dicto-player-MediaPlayer iframe {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none; }
+.dicto-player-SearchComposition {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  overflow: hidden; }
+  .dicto-player-SearchComposition input {
+    flex: 1;
+    padding: 1em;
+    border: none;
+    background: #d0cfbf;
+    outline: none;
+    transition: all 0.5s ease; }
+    .dicto-player-SearchComposition input:hover, .dicto-player-SearchComposition input:focus {
+      color: #e5e1da;
+      background: #848777; }
+.dicto-player-InfoTip {
+  font-size: 0.8em;
+  display: inline-block;
+  width: 1.56em;
+  height: 1.56em;
+  cursor: pointer;
+  text-align: center;
+  color: #e5e1da;
+  border-radius: 50%;
+  background: #848777;
+  transition: all 0.5s ease; }
+  .dicto-player-InfoTip:hover {
+    background: #53544d; }
+.dicto-player-Railway {
+  position: relative;
+  display: flex;
+  width: 3%;
+  padding-top: 6.64em;
+  padding-bottom: 1.66em;
+  pointer-events: none;
+  background: #53544d;
+  flex-flow: column nowrap;
+  justify-content: stretch; }
+  .dicto-player-Railway .chunks-container {
+    position: relative;
+    pointer-events: none;
+    flex: 1;
+    overflow: hidden; }
+    .dicto-player-Railway .chunks-container .chunk {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      pointer-events: all;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.5);
+      flex-flow: row nowrap;
+      align-items: stretch; }
+      .dicto-player-Railway .chunks-container .chunk .tag {
+        opacity: .1;
+        flex: 1; }
+      .dicto-player-Railway .chunks-container .chunk:hover {
+        background: rgba(255, 255, 255, 0.6); }
+        .dicto-player-Railway .chunks-container .chunk:hover .tag {
+          opacity: .8; }
+      .dicto-player-Railway .chunks-container .chunk.active {
+        background: rgba(255, 255, 255, 0.7); }
+        .dicto-player-Railway .chunks-container .chunk.active:hover {
+          background: rgba(255, 255, 255, 0.9); }
+        .dicto-player-Railway .chunks-container .chunk.active .tag {
+          opacity: .9; }
+      .dicto-player-Railway .chunks-container .chunk.hidden {
+        background: rgba(255, 255, 255, 0.1); }
+  .dicto-player-Railway .playing-head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: all 0.25s ease;
+    pointer-events: none;
+    border-bottom: 1px solid red; }
+  .dicto-player-Railway .scrollbar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: all 0.25s ease;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.8); }
+  .dicto-player-Railway .player-ui {
+    pointer-events: all;
+    position: absolute;
+    left: 0;
+    top: 2.49em;
+    display: flex;
+    width: 100%;
+    flex-flow: column nowrap; }
+    .dicto-player-Railway .player-ui button {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #e5e1da;
+      outline: none;
+      margin: 0;
+      margin-bottom: 0.5em;
+      padding: 0;
+      text-align: center;
+      cursor: pointer; }
+      .dicto-player-Railway .player-ui button#volume-symbol {
+        transition: all 0.5s ease;
+        opacity: 0.3; }
+        .dicto-player-Railway .player-ui button#volume-symbol.active {
+          opacity: 1; }
+        .dicto-player-Railway .player-ui button#volume-symbol span {
+          transition: all 0.5s ease; }
+        .dicto-player-Railway .player-ui button#volume-symbol span:nth-child(1) {
+          font-size: .33em; }
+        .dicto-player-Railway .player-ui button#volume-symbol span:nth-child(2) {
+          font-size: .66em; }
+        .dicto-player-Railway .player-ui button#volume-symbol:hover span {
+          font-size: 1em; }

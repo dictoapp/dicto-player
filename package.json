@@ -2,7 +2,7 @@
   "name": "dicto-player",
   "version": "0.0.1",
   "description": "transcripted video player",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist; mkdir dist;webpack",
     "lint": "eslint --fix src",

@@ -139,6 +139,7 @@ function player(state = PLAYER_DEFAULT_STATE, action) {
   let activeChunkCompletion;
   let finalTime;
   let currentDocumentTime;
+
   switch (action.type) {
     case RESET_APP:
       return PLAYER_DEFAULT_STATE;

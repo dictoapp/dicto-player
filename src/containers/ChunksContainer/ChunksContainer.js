@@ -38,6 +38,7 @@ class ChunksContainer extends Component {
     this.springSystem = new SpringSystem();
     this.handleSpringUpdate = this.handleSpringUpdate.bind(this);
     this.scrollTop = this.scrollTop.bind(this);
+    this.onScrollUpdate = this.onScrollUpdate.bind(this);
     this.spring = this.springSystem.createSpring();
     this.spring.addListener({onSpringUpdate: this.handleSpringUpdate});
   }
@@ -96,10 +97,23 @@ class ChunksContainer extends Component {
     this.scrollbars.scrollTop(val);
   }
 
+  onScrollUpdate(values) {
+    this.props.actions.scrollUpdate(values);
+
+    const {onExit} = this.props;
+    const {scrollTop, scrollHeight, clientHeight} = values;
+    if (scrollTop === 0 && typeof onExit === 'function') {
+      onExit('top', values);
+    }
+ else if (scrollTop >= scrollHeight - clientHeight && typeof onExit === 'function') {
+      onExit('bottom', values);
+    }
+  }
+
   render () {
     const {
       actions: {
-        scrollUpdate,
+        // scrollUpdate,
         setActiveChunk,
         toggleIsPlaying
       },
@@ -128,7 +142,7 @@ class ChunksContainer extends Component {
         <Scrollbars
           ref={bindScrollbarRef}
           style={{width: '100%', height: '100%'}}
-          onUpdate={scrollUpdate}>
+          onUpdate={this.onScrollUpdate}>
           {
           chunks.map((thatChunk, index) => {
             const bindChunkRef = (chunk) => {

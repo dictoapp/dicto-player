@@ -15,11 +15,15 @@ const store = configureStore({});
 
 const Player = ({
   composition = {},
-  settings = {}
+  settings = {},
+  onExit,
 }) => {
   return (
     <Provider store={store}>
-      <PlayerContainer composition={composition} settings={settings} />
+      <PlayerContainer
+        composition={composition}
+        settings={settings}
+        onExit={onExit} />
     </Provider>
   );
 };

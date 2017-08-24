@@ -53,7 +53,8 @@ const ColumnsLayout = ({
     setInformationModalVisibility,
     toggleIsPlaying,
     setPlayerVolume
-  }
+  },
+  onExit,
 }) => {
   const closeModal = () => setInformationModalVisibility(false);
   return (
@@ -65,7 +66,7 @@ const ColumnsLayout = ({
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery} />
         </div>
-        <ChunksContainer />
+        <ChunksContainer onExit={onExit} />
       </aside>
       <Railway
         chunks={chunks}

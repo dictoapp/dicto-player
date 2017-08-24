@@ -7,7 +7,7 @@ import getContrastYIQ from '../../utils/getContrastYIQ';
 
 
 function LinkRenderer(props) {
-  return <a href={props.href} target="_blank">{props.children}</a>
+  return <a href={props.href} target="_blank">{props.children}</a>;
 }
 
 class Chunk extends Component {
@@ -41,10 +41,9 @@ class Chunk extends Component {
         id={id}
         ref={bindRef}>
         <div className="contents-container">
-          <ReactMarkdown 
-            source={chunk.content} 
-            renderers={{Link: LinkRenderer}}
-          />
+          <ReactMarkdown
+            source={chunk.content}
+            renderers={{Link: LinkRenderer}} />
         </div>
         {chunk.tags ?
           <div className="tags-container">

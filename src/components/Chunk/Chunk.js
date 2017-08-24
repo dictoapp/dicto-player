@@ -5,6 +5,11 @@ import './Chunk.scss';
 import ReactMarkdown from 'react-markdown';
 import getContrastYIQ from '../../utils/getContrastYIQ';
 
+
+function LinkRenderer(props) {
+  return <a href={props.href} target="_blank">{props.children}</a>
+}
+
 class Chunk extends Component {
 
   constructor(props) {
@@ -36,7 +41,10 @@ class Chunk extends Component {
         id={id}
         ref={bindRef}>
         <div className="contents-container">
-          <ReactMarkdown source={chunk.content} />
+          <ReactMarkdown 
+            source={chunk.content} 
+            renderers={{Link: LinkRenderer}}
+          />
         </div>
         {chunk.tags ?
           <div className="tags-container">

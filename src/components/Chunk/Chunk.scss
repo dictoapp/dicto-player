@@ -47,6 +47,22 @@
         {
             margin-top: 0;
         }
+
+        h1{
+            font-size: $font-size-4;
+        }
+
+        h2,h3,h4{
+            font-size: $font-size-3;
+        }
+
+        a, a:visited{
+            color: $color-btn-medium;
+        }
+
+        a:hover{
+            color: $color-btn-dark;
+        }
     }
     .tags-container
     {
@@ -60,9 +76,11 @@
    */
     .tag
     {
-        margin-right: $gutter-small;
-        padding: $gutter-small;
+        margin-right: $gutter-small/2;
+        margin-bottom: $gutter-small/2;
+        padding: $gutter-small/2;
 
         border-radius: $font-size-1/2;
+        font-size: $font-size-1;
     }
 }

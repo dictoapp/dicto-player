@@ -24,7 +24,6 @@ class MediaPlayer extends Component {
       playerVolume,
       onClick
     } = this.props;
-    // console.log('is playing in media player', isPlaying);
     const handleClick = () => onClick();
     return mediaUrl ? (
       <Media>

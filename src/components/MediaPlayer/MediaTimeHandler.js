@@ -19,21 +19,25 @@ class CustomPlayPause extends Component {
 
       if (this.state.seeking === false) {
         this.setState({seeking: true});
-        this.seekToCurrentMediaTime(nextProps.currentMediaTime);
+        setTimeout(() => {
+          this.seekToCurrentMediaTime(nextProps.currentMediaTime);
+        });
         setTimeout(() => this.setState({seeking: false}), 200);
       }
     }
 
     if (this.props.isPlaying !== nextProps.isPlaying) {
       if (nextProps.isPlaying) {
-        this.props.media.play();
+        setTimeout(this.props.media.play);
       }
- else {
-        this.props.media.pause();
+       else {
+        setTimeout(this.props.media.pause);
       }
     }
     if (this.props.playerVolume !== nextProps.playerVolume) {
-      this.props.media.setVolume(nextProps.playerVolume);
+      setTimeout(() => {
+        this.props.media.setVolume(nextProps.playerVolume);
+      });
     }
   }
 
@@ -42,7 +46,7 @@ class CustomPlayPause extends Component {
   }
 
   seekToCurrentMediaTime (nextTime) {
-      this.props.media.seekTo(nextTime);
+    this.props.media.seekTo(nextTime);
   }
 
   render() {

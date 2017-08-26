@@ -702,8 +702,8 @@ var PlayerContainer = (_dec = (0, _reactRedux.connect)(function (state) {
 
     var _this = _possibleConstructorReturn(this, (PlayerContainer.__proto__ || Object.getPrototypeOf(PlayerContainer)).call(this, props));
 
-    _this.props.actions.setComposition(props.composition);
-    _this.props.actions.setSettings(props.settings);
+    props.actions.setComposition(props.composition);
+    props.actions.setSettings(props.settings);
     _this.renderAppropriatePlayer = function (displayMode, theseProps) {
       switch (displayMode) {
         case 'columns':

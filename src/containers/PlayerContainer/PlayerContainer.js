@@ -30,8 +30,8 @@ class PlayerContainer extends Component {
 
   constructor(props) {
     super(props);
-    this.props.actions.setComposition(props.composition);
-    this.props.actions.setSettings(props.settings);
+    props.actions.setComposition(props.composition);
+    props.actions.setSettings(props.settings);
     this.renderAppropriatePlayer = (displayMode, theseProps) => {
       switch (displayMode) {
         case 'columns':

@@ -13,6 +13,8 @@ import Player from '../src/Player';
 import transcription1 from './compositions/compo-1.json';
 import transcription2 from './compositions/vectors-une-analyse.json';
 
+const onExit = direction => console.info('on exit', direction);
+
 storiesOf('Dicto player', module)
   .add('transcription 1', () => (
     <Player 
@@ -20,6 +22,7 @@ storiesOf('Dicto player', module)
       settings={{
         displayMode: 'columns'
       }}
+          onExit={onExit}
     />
   ))
   .add('transcription 2', () => (
@@ -28,6 +31,7 @@ storiesOf('Dicto player', module)
       settings={{
         displayMode: 'columns'
       }}
+          onExit={onExit}
     />
   ))
   .add('relative position', () => (
@@ -46,6 +50,7 @@ storiesOf('Dicto player', module)
           settings={{
             displayMode: 'columns'
           }}
+          onExit={onExit}
         />
       </div>
     </div>

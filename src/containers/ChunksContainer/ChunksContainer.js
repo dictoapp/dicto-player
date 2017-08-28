@@ -52,7 +52,7 @@ class ChunksContainer extends Component {
           toggleAutoScroll
         }
       } = nextProps;
-      const chunk = document.getElementById('chunk-' + activeChunkIndex);
+      const chunk = this.chunks[activeChunkIndex];
       if (chunk) {
         const scrollTop = chunk.offsetTop;
         const height = chunk.offsetHeight;
@@ -64,13 +64,17 @@ class ChunksContainer extends Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return true;
+  shouldComponentUpdate(nextProps) {
+    return this.props.chunks !== nextProps.chunks;
   }
 
   componentDidUpdate() {
-    const positions = this.chunks.map(chunk => chunk.getPosition());
-    this.props.actions.setChunksPositions(positions);
+    // setTimeout(() => {
+    //   const positions = this.chunks
+    //   .map(chunk => chunk && chunk.getPosition())
+    //   .filter(chunk => chunk !== undefined);   
+    //   this.props.actions.setChunksPositions(positions);
+    // });
   }
 
   componentWillUnmount() {

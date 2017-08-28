@@ -702,8 +702,6 @@ var PlayerContainer = (_dec = (0, _reactRedux.connect)(function (state) {
 
     var _this = _possibleConstructorReturn(this, (PlayerContainer.__proto__ || Object.getPrototypeOf(PlayerContainer)).call(this, props));
 
-    props.actions.setComposition(props.composition);
-    props.actions.setSettings(props.settings);
     _this.renderAppropriatePlayer = function (displayMode, theseProps) {
       switch (displayMode) {
         case 'columns':
@@ -715,6 +713,12 @@ var PlayerContainer = (_dec = (0, _reactRedux.connect)(function (state) {
   }
 
   _createClass(PlayerContainer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.actions.setComposition(this.props.composition);
+      this.props.actions.setSettings(this.props.settings);
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (this.props.composition !== nextProps.composition) {
@@ -1085,7 +1089,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
             activeChunkCompletion = nextProps.activeChunkCompletion,
             toggleAutoScroll = nextProps.actions.toggleAutoScroll;
 
-        var chunk = document.getElementById('chunk-' + activeChunkIndex);
+        var chunk = this.chunks[activeChunkIndex];
         if (chunk) {
           var scrollTop = chunk.offsetTop;
           var height = chunk.offsetHeight;
@@ -1098,16 +1102,18 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
     }
   }, {
     key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate() {
-      return true;
+    value: function shouldComponentUpdate(nextProps) {
+      return this.props.chunks !== nextProps.chunks;
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      var positions = this.chunks.map(function (chunk) {
-        return chunk.getPosition();
-      });
-      this.props.actions.setChunksPositions(positions);
+      // setTimeout(() => {
+      //   const positions = this.chunks
+      //   .map(chunk => chunk && chunk.getPosition())
+      //   .filter(chunk => chunk !== undefined);   
+      //   this.props.actions.setChunksPositions(positions);
+      // });
     }
   }, {
     key: 'componentWillUnmount',

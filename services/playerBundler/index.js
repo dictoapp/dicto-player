@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const buildPath = path.resolve(__dirname + '/../../build/application.js');
+const buildPath = path.resolve(__dirname + '/../../dist/index.js');
 
 const buildSEOHTML = (composition = {metadata: {}, data: []}) => {
   const title = composition.metadata.title || 'Dicto player';

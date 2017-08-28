@@ -23,8 +23,7 @@ const Player = ({
       <PlayerContainer
         composition={composition}
         settings={settings}
-        onExit={onExit} 
-      />
+        onExit={onExit} />
     </Provider>
   );
 };

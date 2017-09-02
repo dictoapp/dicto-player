@@ -604,7 +604,7 @@ var _PlayerContainer = __webpack_require__(6);
 
 var _PlayerContainer2 = _interopRequireDefault(_PlayerContainer);
 
-var _configureStore = __webpack_require__(29);
+var _configureStore = __webpack_require__(30);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
@@ -796,19 +796,19 @@ var _ChunksContainer = __webpack_require__(12);
 
 var _ChunksContainer2 = _interopRequireDefault(_ChunksContainer);
 
-var _MediaPlayer = __webpack_require__(20);
+var _MediaPlayer = __webpack_require__(21);
 
 var _MediaPlayer2 = _interopRequireDefault(_MediaPlayer);
 
-var _SearchComposition = __webpack_require__(23);
+var _SearchComposition = __webpack_require__(24);
 
 var _SearchComposition2 = _interopRequireDefault(_SearchComposition);
 
-var _InfoTip = __webpack_require__(25);
+var _InfoTip = __webpack_require__(26);
 
 var _InfoTip2 = _interopRequireDefault(_InfoTip);
 
-var _Railway = __webpack_require__(27);
+var _Railway = __webpack_require__(28);
 
 var _Railway2 = _interopRequireDefault(_Railway);
 
@@ -1028,21 +1028,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _redux = __webpack_require__(1);
 
+var _lodash = __webpack_require__(13);
+
 var _reactRedux = __webpack_require__(2);
 
-var _reactCustomScrollbars = __webpack_require__(13);
+var _reactCustomScrollbars = __webpack_require__(14);
 
-var _rebound = __webpack_require__(14);
+var _rebound = __webpack_require__(15);
 
 var _duck = __webpack_require__(3);
 
 var duck = _interopRequireWildcard(_duck);
 
-var _Chunk = __webpack_require__(15);
+var _Chunk = __webpack_require__(16);
 
 var _Chunk2 = _interopRequireDefault(_Chunk);
 
-__webpack_require__(19);
+__webpack_require__(20);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -1075,7 +1077,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
     _this.springSystem = new _rebound.SpringSystem();
     _this.handleSpringUpdate = _this.handleSpringUpdate.bind(_this);
     _this.scrollTop = _this.scrollTop.bind(_this);
-    _this.onScrollUpdate = _this.onScrollUpdate.bind(_this);
+    _this.onScrollUpdate = (0, _lodash.debounce)(_this.onScrollUpdate.bind(_this), 200, { leading: true }); //.bind(this);
     _this.spring = _this.springSystem.createSpring();
     _this.spring.addListener({ onSpringUpdate: _this.handleSpringUpdate });
     return _this;
@@ -1108,12 +1110,16 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      // setTimeout(() => {
-      //   const positions = this.chunks
-      //   .map(chunk => chunk && chunk.getPosition())
-      //   .filter(chunk => chunk !== undefined);   
-      //   this.props.actions.setChunksPositions(positions);
-      // });
+      var _this2 = this;
+
+      setTimeout(function () {
+        var positions = _this2.chunks.map(function (chunk) {
+          return chunk && chunk.getPosition();
+        }).filter(function (chunk) {
+          return chunk !== undefined;
+        });
+        _this2.props.actions.setChunksPositions(positions);
+      });
     }
   }, {
     key: 'componentWillUnmount',
@@ -1146,6 +1152,9 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
   }, {
     key: 'onScrollUpdate',
     value: function onScrollUpdate(values) {
+      if (this.props === undefined) {
+        return;
+      }
       this.props.actions.scrollUpdate(values);
 
       var onExit = this.props.onExit;
@@ -1162,7 +1171,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _props = this.props,
           _props$actions = _props.actions,
@@ -1174,10 +1183,10 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
 
 
       var bindScrollbarRef = function bindScrollbarRef(scrollbar) {
-        _this2.scrollbars = scrollbar;
+        _this3.scrollbars = scrollbar;
       };
       var bindContainerRef = function bindContainerRef(container) {
-        _this2.container = container;
+        _this3.container = container;
       };
 
       var onChunkClick = function onChunkClick(chunk) {
@@ -1200,7 +1209,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
             onUpdate: this.onScrollUpdate },
           chunks.map(function (thatChunk, index) {
             var bindChunkRef = function bindChunkRef(chunk) {
-              _this2.chunks[index] = chunk;
+              _this3.chunks[index] = chunk;
             };
             return _react2.default.createElement(_Chunk2.default, {
               chunk: thatChunk,
@@ -1223,16 +1232,22 @@ exports.default = ChunksContainer;
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-custom-scrollbars");
+module.exports = require("lodash");
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("rebound");
+module.exports = require("react-custom-scrollbars");
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+module.exports = require("rebound");
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1248,13 +1263,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(16);
+__webpack_require__(17);
 
-var _reactMarkdown = __webpack_require__(17);
+var _reactMarkdown = __webpack_require__(18);
 
 var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
 
-var _getContrastYIQ = __webpack_require__(18);
+var _getContrastYIQ = __webpack_require__(19);
 
 var _getContrastYIQ2 = _interopRequireDefault(_getContrastYIQ);
 
@@ -1359,19 +1374,19 @@ var Chunk = function (_Component) {
 exports.default = Chunk;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-markdown");
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1396,13 +1411,13 @@ function getContrastYIQ(hexcolor) {
 }
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1420,9 +1435,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactMediaPlayer = __webpack_require__(4);
 
-__webpack_require__(21);
+__webpack_require__(22);
 
-var _MediaTimeHandler = __webpack_require__(22);
+var _MediaTimeHandler = __webpack_require__(23);
 
 var _MediaTimeHandler2 = _interopRequireDefault(_MediaTimeHandler);
 
@@ -1497,13 +1512,13 @@ var MediaPlayer = function (_Component) {
 exports.default = (0, _reactMediaPlayer.withMediaProps)(MediaPlayer);
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1610,7 +1625,7 @@ var CustomPlayPause = function (_Component) {
 exports.default = (0, _reactMediaPlayer.withMediaProps)(CustomPlayPause);
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1624,7 +1639,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(24);
+__webpack_require__(25);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1649,13 +1664,13 @@ var SearchComposition = function SearchComposition(_ref) {
 exports.default = SearchComposition;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1669,7 +1684,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(26);
+__webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1688,13 +1703,13 @@ var InfoTip = function InfoTip(_ref) {
 exports.default = InfoTip;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1710,7 +1725,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(28);
+__webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1863,13 +1878,13 @@ var Railway = function Railway(_ref) {
 exports.default = Railway;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1882,7 +1897,7 @@ exports.default = configureStore;
 
 var _redux = __webpack_require__(1);
 
-var _reduxThunk = __webpack_require__(30);
+var _reduxThunk = __webpack_require__(31);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -1890,7 +1905,7 @@ var _duck = __webpack_require__(3);
 
 var _duck2 = _interopRequireDefault(_duck);
 
-var _promiseMiddleware = __webpack_require__(31);
+var _promiseMiddleware = __webpack_require__(32);
 
 var _promiseMiddleware2 = _interopRequireDefault(_promiseMiddleware);
 
@@ -1933,13 +1948,13 @@ function configureStore() {
 }
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

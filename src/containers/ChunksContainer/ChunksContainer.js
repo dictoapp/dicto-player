@@ -6,6 +6,7 @@
 
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
+import {debounce} from 'lodash';
 import {connect} from 'react-redux';
 
 import {Scrollbars} from 'react-custom-scrollbars';
@@ -38,7 +39,7 @@ class ChunksContainer extends Component {
     this.springSystem = new SpringSystem();
     this.handleSpringUpdate = this.handleSpringUpdate.bind(this);
     this.scrollTop = this.scrollTop.bind(this);
-    this.onScrollUpdate = this.onScrollUpdate.bind(this);
+    this.onScrollUpdate = debounce(this.onScrollUpdate.bind(this), 200, {leading: true}); //.bind(this);
     this.spring = this.springSystem.createSpring();
     this.spring.addListener({onSpringUpdate: this.handleSpringUpdate});
   }
@@ -69,12 +70,12 @@ class ChunksContainer extends Component {
   }
 
   componentDidUpdate() {
-    // setTimeout(() => {
-    //   const positions = this.chunks
-    //   .map(chunk => chunk && chunk.getPosition())
-    //   .filter(chunk => chunk !== undefined);   
-    //   this.props.actions.setChunksPositions(positions);
-    // });
+    setTimeout(() => {
+      const positions = this.chunks
+      .map(chunk => chunk && chunk.getPosition())
+      .filter(chunk => chunk !== undefined);   
+      this.props.actions.setChunksPositions(positions);
+    });
   }
 
   componentWillUnmount() {
@@ -102,6 +103,9 @@ class ChunksContainer extends Component {
   }
 
   onScrollUpdate(values) {
+    if (this.props === undefined) {
+      return;
+    }
     this.props.actions.scrollUpdate(values);
 
     const {onExit} = this.props;
@@ -109,7 +113,7 @@ class ChunksContainer extends Component {
     if (scrollTop === 0 && typeof onExit === 'function') {
       onExit('top', values);
     }
- else if (scrollTop >= scrollHeight - clientHeight && typeof onExit === 'function') {
+    else if (scrollTop >= scrollHeight - clientHeight && typeof onExit === 'function') {
       onExit('bottom', values);
     }
   }

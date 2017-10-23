@@ -73,7 +73,7 @@ class ChunksContainer extends Component {
     setTimeout(() => {
       const positions = this.chunks
       .map(chunk => chunk && chunk.getPosition())
-      .filter(chunk => chunk !== undefined);   
+      .filter(chunk => chunk !== undefined);
       this.props.actions.setChunksPositions(positions);
     });
   }

@@ -1,0 +1,144 @@
+
+@import '../../parameters.scss';
+// @import url('https://fonts.googleapis.com/css?family=Lato');
+
+.dicto-player-PeckingLayout
+{
+    font-family: 'Lato', sans-serif;
+    font-size: $font-size-1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    background: $color-bg-light;
+
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    .aside-column,
+    .media-column
+    {
+        height: 100%;
+
+        flex: 1;
+    }
+    .aside-column
+    {
+        display: flex;
+        overflow: hidden;
+
+        flex-flow: column nowrap;
+        justify-content: stretch;
+        .header
+        {
+            padding: $gutter-small;
+        }
+        .dicto-player-ChunksContainer
+        {
+            flex: 1;
+        }
+    }
+    .media-column
+    {
+        position: relative;
+
+        display: flex;
+        overflow: hidden;
+
+        cursor: pointer;
+
+        background: black;
+
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        .media-container{
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        .visualization-container{
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+        }
+    }
+    /*
+   * SECONDARY LAYOUT
+   */
+}
+
+.dicto-player-modal
+{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    padding: $gutter-medium;
+    font-family: 'Lato', sans-serif;
+
+    display: flex;
+
+    border: none!important;
+    background: $color-bg-light!important;
+
+    flex-flow: column nowrap;
+    align-items: stretch;
+    outline: none;
+    h2
+    {
+        margin: 0;
+    }
+    .modal-content-wrapper
+    {
+        display: flex;
+
+        flex: 1;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        .modal-column
+        {
+            flex: 1;
+            .modal-section
+            {
+                margin-bottom: $gutter-medium;
+            }
+        }
+        .to-copy
+        {
+            padding: $gutter-small;
+
+            cursor: pointer;
+            -webkit-user-select: all;  /* Chrome all / Safari all */
+               -moz-user-select: all;     /* Firefox all */
+                -ms-user-select: all;      /* IE 10+ */
+                    user-select: all;          /* Likely future */
+
+            background: $color-btn-light;
+        }
+    }
+}
+
+::-moz-selection
+{
+    /* Code for Firefox */
+    color: $color-btn-light;
+    background: $color-btn-dark;
+}
+
+::selection
+{
+    color: $color-btn-light;
+    background: $color-btn-dark;
+}

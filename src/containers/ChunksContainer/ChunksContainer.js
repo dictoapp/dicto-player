@@ -36,10 +36,13 @@ class ChunksContainer extends Component {
   constructor(props) {
     super(props);
     this.chunks = [];
-    this.springSystem = new SpringSystem();
     this.handleSpringUpdate = this.handleSpringUpdate.bind(this);
     this.scrollTop = this.scrollTop.bind(this);
     this.onScrollUpdate = debounce(this.onScrollUpdate.bind(this), 200, {leading: true}); //.bind(this);
+  }
+
+  componentDidMount() {
+    this.springSystem = new SpringSystem();
     this.spring = this.springSystem.createSpring();
     this.spring.addListener({onSpringUpdate: this.handleSpringUpdate});
   }
@@ -55,8 +58,8 @@ class ChunksContainer extends Component {
       } = nextProps;
       const chunk = this.chunks[activeChunkIndex];
       if (chunk) {
-        const scrollTop = chunk.offsetTop;
-        const height = chunk.offsetHeight;
+        const scrollTop = chunk.element.offsetTop;
+        const height = chunk.element.offsetHeight;
         const target = scrollTop + height * activeChunkCompletion;
         const centered = target - this.container.offsetHeight / 2;
         this.scrollTop(centered);
@@ -99,7 +102,9 @@ class ChunksContainer extends Component {
 
   handleSpringUpdate(spring) {
     const val = spring.getCurrentValue();
-    this.scrollbars.scrollTop(val);
+    if (!Number.isNaN(val)) {
+      this.scrollbars.scrollTop(val);
+    }
   }
 
   onScrollUpdate(values) {

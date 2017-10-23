@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -103,9 +103,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _redux = __webpack_require__(1);
 
-var _reselect = __webpack_require__(7);
+var _reselect = __webpack_require__(13);
 
-var _chunkMatchesSearchQuery = __webpack_require__(8);
+var _chunkMatchesSearchQuery = __webpack_require__(14);
 
 var _chunkMatchesSearchQuery2 = _interopRequireDefault(_chunkMatchesSearchQuery);
 
@@ -581,7 +581,7 @@ var selector = exports.selector = (0, _reselect.createStructuredSelector)({
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-media-player");
+module.exports = require("react-modal");
 
 /***/ }),
 /* 5 */
@@ -594,61 +594,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(2);
-
-var _PlayerContainer = __webpack_require__(6);
-
-var _PlayerContainer2 = _interopRequireDefault(_PlayerContainer);
-
-var _configureStore = __webpack_require__(30);
-
-var _configureStore2 = _interopRequireDefault(_configureStore);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * dicto-player Application Endpoint
- * ======================================
- *
- * Rendering the application.
- * @module dicto-player
- */
-var store = (0, _configureStore2.default)({});
-
-var Player = function Player(_ref) {
-  var _ref$composition = _ref.composition,
-      composition = _ref$composition === undefined ? {} : _ref$composition,
-      _ref$settings = _ref.settings,
-      settings = _ref$settings === undefined ? {} : _ref$settings,
-      onExit = _ref.onExit;
-
-  return _react2.default.createElement(
-    _reactRedux.Provider,
-    { store: store },
-    _react2.default.createElement(_PlayerContainer2.default, {
-      composition: composition,
-      settings: settings,
-      onExit: onExit })
-  );
-};
-
-exports.default = Player;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -665,386 +610,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _redux = __webpack_require__(1);
 
+var _lodash = __webpack_require__(17);
+
 var _reactRedux = __webpack_require__(2);
+
+var _reactCustomScrollbars = __webpack_require__(18);
+
+var _rebound = __webpack_require__(19);
 
 var _duck = __webpack_require__(3);
 
 var duck = _interopRequireWildcard(_duck);
 
-var _ColumnsLayout = __webpack_require__(9);
-
-var _ColumnsLayout2 = _interopRequireDefault(_ColumnsLayout);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Redux-decorated component class rendering the player feature to the app
- */
-var PlayerContainer = (_dec = (0, _reactRedux.connect)(function (state) {
-  return _extends({}, duck.selector(state));
-}, function (dispatch) {
-  return {
-    actions: (0, _redux.bindActionCreators)(_extends({}, duck), dispatch)
-  };
-}), _dec(_class = function (_Component) {
-  _inherits(PlayerContainer, _Component);
-
-  function PlayerContainer(props) {
-    _classCallCheck(this, PlayerContainer);
-
-    var _this = _possibleConstructorReturn(this, (PlayerContainer.__proto__ || Object.getPrototypeOf(PlayerContainer)).call(this, props));
-
-    _this.renderAppropriatePlayer = function (displayMode, theseProps) {
-      switch (displayMode) {
-        case 'columns':
-        default:
-          return _react2.default.createElement(_ColumnsLayout2.default, theseProps);
-      }
-    };
-    return _this;
-  }
-
-  _createClass(PlayerContainer, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.props.actions.setComposition(this.props.composition);
-      this.props.actions.setSettings(this.props.settings);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.props.composition !== nextProps.composition) {
-        this.props.actions.setComposition(nextProps.composition);
-      }
-
-      if (this.props.settings !== nextProps.settings) {
-        this.props.actions.setSettings(nextProps.settings);
-      }
-    }
-  }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate() {
-      return true;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var displayMode = this.props.displayMode;
-
-      return displayMode ? this.renderAppropriatePlayer(displayMode, this.props) : null;
-    }
-  }]);
-
-  return PlayerContainer;
-}(_react.Component)) || _class);
-exports.default = PlayerContainer;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("reselect");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-        value: true
-});
-exports.default = chunkMatchesSearchQuery;
-function chunkMatchesSearchQuery() {
-        var chunk = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        var searchQuery = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-        return searchQuery && searchQuery.length && chunk.content && chunk.content.toLowerCase().indexOf(searchQuery.toLowerCase()) === -1 ? false : true;
-}
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(10);
-
-var _reactModal = __webpack_require__(11);
-
-var _reactModal2 = _interopRequireDefault(_reactModal);
-
-var _ChunksContainer = __webpack_require__(12);
-
-var _ChunksContainer2 = _interopRequireDefault(_ChunksContainer);
-
-var _MediaPlayer = __webpack_require__(21);
-
-var _MediaPlayer2 = _interopRequireDefault(_MediaPlayer);
-
-var _SearchComposition = __webpack_require__(24);
-
-var _SearchComposition2 = _interopRequireDefault(_SearchComposition);
-
-var _InfoTip = __webpack_require__(26);
-
-var _InfoTip2 = _interopRequireDefault(_InfoTip);
-
-var _Railway = __webpack_require__(28);
-
-var _Railway2 = _interopRequireDefault(_Railway);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ColumnsLayout = function ColumnsLayout(_ref) {
-  var _ref$chunks = _ref.chunks,
-      chunks = _ref$chunks === undefined ? [] : _ref$chunks,
-      compositionTitle = _ref.compositionTitle,
-      compositionDescription = _ref.compositionDescription,
-      compositionAuthors = _ref.compositionAuthors,
-      _ref$settings$allowEm = _ref.settings.allowEmbed,
-      allowEmbed = _ref$settings$allowEm === undefined ? true : _ref$settings$allowEm,
-      mediaUrl = _ref.mediaUrl,
-      currentMediaTime = _ref.currentMediaTime,
-      currentMediaDuration = _ref.currentMediaDuration,
-      searchQuery = _ref.searchQuery,
-      informationModalVisible = _ref.informationModalVisible,
-      scrollPosition = _ref.scrollPosition,
-      isPlaying = _ref.isPlaying,
-      playerVolume = _ref.playerVolume,
-      _ref$actions = _ref.actions,
-      setCurrentMediaDuration = _ref$actions.setCurrentMediaDuration,
-      setCurrentMediaTime = _ref$actions.setCurrentMediaTime,
-      setSearchQuery = _ref$actions.setSearchQuery,
-      setInformationModalVisibility = _ref$actions.setInformationModalVisibility,
-      toggleIsPlaying = _ref$actions.toggleIsPlaying,
-      setPlayerVolume = _ref$actions.setPlayerVolume,
-      onExit = _ref.onExit;
-
-  var closeModal = function closeModal() {
-    return setInformationModalVisibility(false);
-  };
-  return _react2.default.createElement(
-    'section',
-    { className: 'dicto-player-ColumnsLayout' },
-    _react2.default.createElement(
-      'aside',
-      { className: 'aside-column' },
-      _react2.default.createElement(
-        'div',
-        { className: 'header' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          compositionTitle || 'Dicto',
-          ' ',
-          allowEmbed && _react2.default.createElement(_InfoTip2.default, { onClick: setInformationModalVisibility }),
-          ' '
-        ),
-        _react2.default.createElement(_SearchComposition2.default, {
-          searchQuery: searchQuery,
-          onSearchQueryChange: setSearchQuery })
-      ),
-      _react2.default.createElement(_ChunksContainer2.default, { onExit: onExit })
-    ),
-    _react2.default.createElement(_Railway2.default, {
-      chunks: chunks,
-      scrollPosition: scrollPosition,
-      currentMediaDuration: currentMediaDuration,
-      currentMediaTime: currentMediaTime,
-      seekToSec: setCurrentMediaTime,
-      isPlaying: isPlaying,
-      toggleIsPlaying: toggleIsPlaying,
-      playerVolume: playerVolume,
-      setPlayerVolume: setPlayerVolume }),
-    _react2.default.createElement(
-      'section',
-      { className: 'media-column' },
-      _react2.default.createElement(_MediaPlayer2.default, {
-        mediaUrl: mediaUrl,
-        onDuration: setCurrentMediaDuration,
-        o: true, gnTimeUpdate: setCurrentMediaTime,
-        currentMediaTime: currentMediaTime,
-        isPlaying: isPlaying,
-        onClick: toggleIsPlaying,
-        playerVolume: playerVolume })
-    ),
-    informationModalVisible ? _react2.default.createElement(
-      _reactModal2.default,
-      {
-        isOpen: informationModalVisible,
-        onRequestClose: closeModal,
-        shouldCloseOnOverlayClick: true,
-        className: 'dicto-player-modal',
-        contentLabel: 'Information' },
-      _react2.default.createElement(
-        'h2',
-        null,
-        compositionTitle || 'Dicto'
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'modal-content-wrapper' },
-        compositionDescription || compositionAuthors ? _react2.default.createElement(
-          'div',
-          { className: 'modal-column info' },
-          _react2.default.createElement(
-            'p',
-            null,
-            _react2.default.createElement(
-              'i',
-              null,
-              compositionDescription
-            )
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            _react2.default.createElement(
-              'i',
-              null,
-              compositionAuthors.map(function (author) {
-                return author;
-              }).join(', '),
-              '.'
-            )
-          )
-        ) : null,
-        _react2.default.createElement(
-          'div',
-          { className: 'modal-column addresses' },
-          _react2.default.createElement(
-            'h3',
-            null,
-            'Partager'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'modal-section' },
-            _react2.default.createElement(
-              'p',
-              null,
-              'Url de cette composition : '
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'to-copy' },
-              window.location.href
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'modal-section' },
-            _react2.default.createElement(
-              'p',
-              null,
-              'Embarquer : '
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'to-copy' },
-              '<iframe src="' + window.location.href + '" frameborder=0 allowfullscreen width=800 height=600 />'
-            )
-          )
-        )
-      )
-    ) : null
-  );
-};
-
-// import {
-//   ShareButtons,
-//   ShareCounts,
-//   generateShareIcon
-// } from 'react-share';
-
-// const {
-//   FacebookShareButton,
-//   GooglePlusShareButton,
-//   LinkedinShareButton,
-//   TwitterShareButton,
-//   TelegramShareButton,
-//   WhatsappShareButton,
-//   PinterestShareButton,
-//   VKShareButton
-// } = ShareButtons;
-
-exports.default = ColumnsLayout;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-modal");
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _dec, _class; /* eslint react/prefer-stateless-function : 0 */
-/**
- * This module exports a stateful component connected to the redux logic of the app
- * @module dicto-player/containers/player-container
- */
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _redux = __webpack_require__(1);
-
-var _lodash = __webpack_require__(13);
-
-var _reactRedux = __webpack_require__(2);
-
-var _reactCustomScrollbars = __webpack_require__(14);
-
-var _rebound = __webpack_require__(15);
-
-var _duck = __webpack_require__(3);
-
-var duck = _interopRequireWildcard(_duck);
-
-var _Chunk = __webpack_require__(16);
+var _Chunk = __webpack_require__(20);
 
 var _Chunk2 = _interopRequireDefault(_Chunk);
 
-__webpack_require__(20);
+__webpack_require__(24);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -1074,16 +656,20 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
     var _this = _possibleConstructorReturn(this, (ChunksContainer.__proto__ || Object.getPrototypeOf(ChunksContainer)).call(this, props));
 
     _this.chunks = [];
-    _this.springSystem = new _rebound.SpringSystem();
     _this.handleSpringUpdate = _this.handleSpringUpdate.bind(_this);
     _this.scrollTop = _this.scrollTop.bind(_this);
     _this.onScrollUpdate = (0, _lodash.debounce)(_this.onScrollUpdate.bind(_this), 200, { leading: true }); //.bind(this);
-    _this.spring = _this.springSystem.createSpring();
-    _this.spring.addListener({ onSpringUpdate: _this.handleSpringUpdate });
     return _this;
   }
 
   _createClass(ChunksContainer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.springSystem = new _rebound.SpringSystem();
+      this.spring = this.springSystem.createSpring();
+      this.spring.addListener({ onSpringUpdate: this.handleSpringUpdate });
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.autoScrollMode) {
@@ -1093,8 +679,8 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
 
         var chunk = this.chunks[activeChunkIndex];
         if (chunk) {
-          var scrollTop = chunk.offsetTop;
-          var height = chunk.offsetHeight;
+          var scrollTop = chunk.element.offsetTop;
+          var height = chunk.element.offsetHeight;
           var target = scrollTop + height * activeChunkCompletion;
           var centered = target - this.container.offsetHeight / 2;
           this.scrollTop(centered);
@@ -1147,7 +733,9 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
     key: 'handleSpringUpdate',
     value: function handleSpringUpdate(spring) {
       var val = spring.getCurrentValue();
-      this.scrollbars.scrollTop(val);
+      if (!Number.isNaN(val)) {
+        this.scrollbars.scrollTop(val);
+      }
     }
   }, {
     key: 'onScrollUpdate',
@@ -1229,25 +817,7 @@ var ChunksContainer = (_dec = (0, _reactRedux.connect)(function (state) {
 exports.default = ChunksContainer;
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("lodash");
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-custom-scrollbars");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = require("rebound");
-
-/***/ }),
-/* 16 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1263,181 +833,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(17);
+var _reactMediaPlayer = __webpack_require__(10);
 
-var _reactMarkdown = __webpack_require__(18);
+__webpack_require__(25);
 
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
-var _getContrastYIQ = __webpack_require__(19);
-
-var _getContrastYIQ2 = _interopRequireDefault(_getContrastYIQ);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function LinkRenderer(props) {
-  return _react2.default.createElement(
-    'a',
-    { href: props.href, target: '_blank' },
-    props.children
-  );
-}
-
-var Chunk = function (_Component) {
-  _inherits(Chunk, _Component);
-
-  function Chunk(props) {
-    _classCallCheck(this, Chunk);
-
-    var _this = _possibleConstructorReturn(this, (Chunk.__proto__ || Object.getPrototypeOf(Chunk)).call(this, props));
-
-    _this.getPosition = function () {
-      var height = _this.element.offsetHeight;
-      var top = _this.element.offsetTop;
-      return {
-        height: height,
-        top: top
-      };
-    };
-    return _this;
-  }
-
-  _createClass(Chunk, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var _props = this.props,
-          _props$chunk = _props.chunk,
-          chunk = _props$chunk === undefined ? {} : _props$chunk,
-          onClick = _props.onClick,
-          onTagQuery = _props.onTagQuery,
-          id = _props.id;
-
-      var onChunkClick = function onChunkClick() {
-        return onClick(chunk);
-      };
-      var bindRef = function bindRef(section) {
-        _this2.element = section;
-      };
-      return _react2.default.createElement(
-        'section',
-        {
-          className: 'dicto-player-Chunk ' + (chunk.active ? 'active ' : ' ') + (chunk.matched === false ? 'hidden' : ' '),
-          onClick: onChunkClick,
-          id: id,
-          ref: bindRef },
-        _react2.default.createElement(
-          'div',
-          { className: 'contents-container' },
-          _react2.default.createElement(_reactMarkdown2.default, {
-            source: chunk.content,
-            renderers: { Link: LinkRenderer } })
-        ),
-        chunk.tags ? _react2.default.createElement(
-          'div',
-          { className: 'tags-container' },
-          chunk.tags.map(function (tag, index) {
-            var onTagClick = function onTagClick() {
-              return onTagQuery('' + tag.name);
-            };
-            return _react2.default.createElement(
-              'span',
-              {
-                className: 'tag',
-                key: index,
-                onClick: onTagClick,
-                style: {
-                  background: tag.color,
-                  color: (0, _getContrastYIQ2.default)(tag.color)
-                } },
-              tag.name,
-              ' (',
-              tag.category,
-              ')'
-            );
-          })
-        ) : null
-      );
-    }
-  }]);
-
-  return Chunk;
-}(_react.Component);
-
-exports.default = Chunk;
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-markdown");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getContrastYIQ;
-function getContrastYIQ(hexcolor) {
-  if (!hexcolor) {
-    return;
-  }
-  if (hexcolor.length > 6) {
-    hexcolor = hexcolor.substring(1);
-  }
-  var r = parseInt(hexcolor.substr(0, 2), 16);
-  var g = parseInt(hexcolor.substr(2, 2), 16);
-  var b = parseInt(hexcolor.substr(4, 2), 16);
-  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? 'black' : 'white';
-}
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactMediaPlayer = __webpack_require__(4);
-
-__webpack_require__(22);
-
-var _MediaTimeHandler = __webpack_require__(23);
+var _MediaTimeHandler = __webpack_require__(26);
 
 var _MediaTimeHandler2 = _interopRequireDefault(_MediaTimeHandler);
 
@@ -1512,120 +912,7 @@ var MediaPlayer = function (_Component) {
 exports.default = (0, _reactMediaPlayer.withMediaProps)(MediaPlayer);
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactMediaPlayer = __webpack_require__(4);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint react/no-set-state : 0 */
-
-
-var CustomPlayPause = function (_Component) {
-  _inherits(CustomPlayPause, _Component);
-
-  function CustomPlayPause(props) {
-    _classCallCheck(this, CustomPlayPause);
-
-    var _this = _possibleConstructorReturn(this, (CustomPlayPause.__proto__ || Object.getPrototypeOf(CustomPlayPause)).call(this, props));
-
-    _this.seekToCurrentMediaTime = _this.seekToCurrentMediaTime.bind(_this);
-
-    _this.state = {
-      seeking: false
-    };
-    return _this;
-  }
-
-  _createClass(CustomPlayPause, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var _this2 = this;
-
-      if (Math.abs(this.props.currentMediaTime - nextProps.currentMediaTime) > 1 && !this.props.isLoading) {
-
-        if (this.state.seeking === false) {
-          this.setState({ seeking: true });
-          setTimeout(function () {
-            _this2.seekToCurrentMediaTime(nextProps.currentMediaTime);
-          });
-          setTimeout(function () {
-            return _this2.setState({ seeking: false });
-          }, 200);
-        }
-      }
-
-      if (this.props.isPlaying !== nextProps.isPlaying) {
-        if (nextProps.isPlaying) {
-          setTimeout(this.props.media.play);
-        } else {
-          setTimeout(this.props.media.pause);
-        }
-      }
-      if (this.props.playerVolume !== nextProps.playerVolume) {
-        setTimeout(function () {
-          _this2.props.media.setVolume(nextProps.playerVolume);
-        });
-      }
-    }
-  }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate() {
-      return true;
-    }
-  }, {
-    key: 'seekToCurrentMediaTime',
-    value: function seekToCurrentMediaTime(nextTime) {
-      this.props.media.seekTo(nextTime);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          style = _props.style;
-
-      return _react2.default.createElement(
-        'span',
-        {
-          className: className,
-          style: style },
-        this.props.currentMediaTime
-      );
-    }
-  }]);
-
-  return CustomPlayPause;
-}(_react.Component);
-
-exports.default = (0, _reactMediaPlayer.withMediaProps)(CustomPlayPause);
-
-/***/ }),
-/* 24 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1639,7 +926,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(25);
+__webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1664,13 +951,7 @@ var SearchComposition = function SearchComposition(_ref) {
 exports.default = SearchComposition;
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 26 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1684,7 +965,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(27);
+__webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1703,13 +984,7 @@ var InfoTip = function InfoTip(_ref) {
 exports.default = InfoTip;
 
 /***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 28 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1878,6 +1153,744 @@ var Railway = function Railway(_ref) {
 exports.default = Railway;
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-media-player");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _PlayerContainer = __webpack_require__(12);
+
+var _PlayerContainer2 = _interopRequireDefault(_PlayerContainer);
+
+var _configureStore = __webpack_require__(35);
+
+var _configureStore2 = _interopRequireDefault(_configureStore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * dicto-player Application Endpoint
+ * ======================================
+ *
+ * Rendering the application.
+ * @module dicto-player
+ */
+var store = (0, _configureStore2.default)({});
+
+var Player = function Player(_ref) {
+  var _ref$composition = _ref.composition,
+      composition = _ref$composition === undefined ? {} : _ref$composition,
+      _ref$settings = _ref.settings,
+      settings = _ref$settings === undefined ? {} : _ref$settings,
+      onExit = _ref.onExit;
+
+  return _react2.default.createElement(
+    _reactRedux.Provider,
+    { store: store },
+    _react2.default.createElement(_PlayerContainer2.default, {
+      composition: composition,
+      settings: settings,
+      onExit: onExit })
+  );
+};
+
+exports.default = Player;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _dec, _class; /* eslint react/prefer-stateless-function : 0 */
+/**
+ * This module exports a stateful component connected to the redux logic of the app
+ * @module dicto-player/containers/player-container
+ */
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(1);
+
+var _reactRedux = __webpack_require__(2);
+
+var _duck = __webpack_require__(3);
+
+var duck = _interopRequireWildcard(_duck);
+
+var _ColumnsLayout = __webpack_require__(15);
+
+var _ColumnsLayout2 = _interopRequireDefault(_ColumnsLayout);
+
+var _FullscreenLayout = __webpack_require__(30);
+
+var _FullscreenLayout2 = _interopRequireDefault(_FullscreenLayout);
+
+var _PeckingLayout = __webpack_require__(32);
+
+var _PeckingLayout2 = _interopRequireDefault(_PeckingLayout);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Redux-decorated component class rendering the player feature to the app
+ */
+var PlayerContainer = (_dec = (0, _reactRedux.connect)(function (state) {
+  return _extends({}, duck.selector(state));
+}, function (dispatch) {
+  return {
+    actions: (0, _redux.bindActionCreators)(_extends({}, duck), dispatch)
+  };
+}), _dec(_class = function (_Component) {
+  _inherits(PlayerContainer, _Component);
+
+  function PlayerContainer(props) {
+    _classCallCheck(this, PlayerContainer);
+
+    var _this = _possibleConstructorReturn(this, (PlayerContainer.__proto__ || Object.getPrototypeOf(PlayerContainer)).call(this, props));
+
+    _this.renderAppropriatePlayer = function (displayMode, theseProps) {
+      switch (displayMode) {
+        case 'pecking':
+          return _react2.default.createElement(_PeckingLayout2.default, theseProps);
+
+        case 'fullscreen':
+          return _react2.default.createElement(_FullscreenLayout2.default, theseProps);
+
+        case 'columns':
+        default:
+          return _react2.default.createElement(_ColumnsLayout2.default, theseProps);
+      }
+    };
+    return _this;
+  }
+
+  _createClass(PlayerContainer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.actions.setComposition(this.props.composition);
+      this.props.actions.setSettings(this.props.settings);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.composition !== nextProps.composition) {
+        this.props.actions.setComposition(nextProps.composition);
+      }
+
+      if (this.props.settings !== nextProps.settings) {
+        this.props.actions.setSettings(nextProps.settings);
+      }
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate() {
+      return true;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var displayMode = this.props.displayMode;
+
+      return displayMode ? this.renderAppropriatePlayer(displayMode, this.props) : null;
+    }
+  }]);
+
+  return PlayerContainer;
+}(_react.Component)) || _class);
+exports.default = PlayerContainer;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("reselect");
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = chunkMatchesSearchQuery;
+function chunkMatchesSearchQuery() {
+  var chunk = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var searchQuery = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+  if (searchQuery && searchQuery.length) {
+    if (chunk.content.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
+      return true;
+    } else if (chunk.tags) {
+      var match = chunk.tags.find(function (tag) {
+        return tag.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
+      });
+      return match !== undefined;
+    }
+    return false;
+  } else return true;
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(16);
+
+var _reactModal = __webpack_require__(4);
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
+var _ChunksContainer = __webpack_require__(5);
+
+var _ChunksContainer2 = _interopRequireDefault(_ChunksContainer);
+
+var _MediaPlayer = __webpack_require__(6);
+
+var _MediaPlayer2 = _interopRequireDefault(_MediaPlayer);
+
+var _SearchComposition = __webpack_require__(7);
+
+var _SearchComposition2 = _interopRequireDefault(_SearchComposition);
+
+var _InfoTip = __webpack_require__(8);
+
+var _InfoTip2 = _interopRequireDefault(_InfoTip);
+
+var _Railway = __webpack_require__(9);
+
+var _Railway2 = _interopRequireDefault(_Railway);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ColumnsLayout = function ColumnsLayout(_ref) {
+  var _ref$chunks = _ref.chunks,
+      chunks = _ref$chunks === undefined ? [] : _ref$chunks,
+      compositionTitle = _ref.compositionTitle,
+      compositionDescription = _ref.compositionDescription,
+      compositionAuthors = _ref.compositionAuthors,
+      _ref$settings$allowEm = _ref.settings.allowEmbed,
+      allowEmbed = _ref$settings$allowEm === undefined ? true : _ref$settings$allowEm,
+      mediaUrl = _ref.mediaUrl,
+      currentMediaTime = _ref.currentMediaTime,
+      currentMediaDuration = _ref.currentMediaDuration,
+      searchQuery = _ref.searchQuery,
+      informationModalVisible = _ref.informationModalVisible,
+      scrollPosition = _ref.scrollPosition,
+      isPlaying = _ref.isPlaying,
+      playerVolume = _ref.playerVolume,
+      _ref$actions = _ref.actions,
+      setCurrentMediaDuration = _ref$actions.setCurrentMediaDuration,
+      setCurrentMediaTime = _ref$actions.setCurrentMediaTime,
+      setSearchQuery = _ref$actions.setSearchQuery,
+      setInformationModalVisibility = _ref$actions.setInformationModalVisibility,
+      toggleIsPlaying = _ref$actions.toggleIsPlaying,
+      setPlayerVolume = _ref$actions.setPlayerVolume,
+      onExit = _ref.onExit;
+
+  var closeModal = function closeModal() {
+    return setInformationModalVisibility(false);
+  };
+  return _react2.default.createElement(
+    'section',
+    { className: 'dicto-player-ColumnsLayout' },
+    _react2.default.createElement(
+      'aside',
+      { className: 'aside-column' },
+      _react2.default.createElement(
+        'div',
+        { className: 'header' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          compositionTitle || 'Dicto',
+          ' ',
+          allowEmbed && _react2.default.createElement(_InfoTip2.default, { onClick: setInformationModalVisibility }),
+          ' '
+        ),
+        _react2.default.createElement(_SearchComposition2.default, {
+          searchQuery: searchQuery,
+          onSearchQueryChange: setSearchQuery })
+      ),
+      _react2.default.createElement(_ChunksContainer2.default, { onExit: onExit })
+    ),
+    _react2.default.createElement(_Railway2.default, {
+      chunks: chunks,
+      scrollPosition: scrollPosition,
+      currentMediaDuration: currentMediaDuration,
+      currentMediaTime: currentMediaTime,
+      seekToSec: setCurrentMediaTime,
+      isPlaying: isPlaying,
+      toggleIsPlaying: toggleIsPlaying,
+      playerVolume: playerVolume,
+      setPlayerVolume: setPlayerVolume }),
+    _react2.default.createElement(
+      'section',
+      { className: 'media-column' },
+      _react2.default.createElement(_MediaPlayer2.default, {
+        mediaUrl: mediaUrl,
+        onDuration: setCurrentMediaDuration,
+        o: true, gnTimeUpdate: setCurrentMediaTime,
+        currentMediaTime: currentMediaTime,
+        isPlaying: isPlaying,
+        onClick: toggleIsPlaying,
+        playerVolume: playerVolume })
+    ),
+    informationModalVisible ? _react2.default.createElement(
+      _reactModal2.default,
+      {
+        isOpen: informationModalVisible,
+        onRequestClose: closeModal,
+        shouldCloseOnOverlayClick: true,
+        className: 'dicto-player-modal',
+        contentLabel: 'Information' },
+      _react2.default.createElement(
+        'h2',
+        null,
+        compositionTitle || 'Dicto'
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'modal-content-wrapper' },
+        compositionDescription || compositionAuthors ? _react2.default.createElement(
+          'div',
+          { className: 'modal-column info' },
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'i',
+              null,
+              compositionDescription
+            )
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'i',
+              null,
+              compositionAuthors.map(function (author) {
+                return author;
+              }).join(', '),
+              '.'
+            )
+          )
+        ) : null,
+        _react2.default.createElement(
+          'div',
+          { className: 'modal-column addresses' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Partager'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-section' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Url de cette composition : '
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'to-copy' },
+              window.location.href
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-section' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Embarquer : '
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'to-copy' },
+              '<iframe src="' + window.location.href + '" frameborder=0 allowfullscreen width=800 height=600 />'
+            )
+          )
+        )
+      )
+    ) : null
+  );
+};
+
+exports.default = ColumnsLayout;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-custom-scrollbars");
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("rebound");
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(21);
+
+var _reactMarkdown = __webpack_require__(22);
+
+var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
+
+var _getContrastYIQ = __webpack_require__(23);
+
+var _getContrastYIQ2 = _interopRequireDefault(_getContrastYIQ);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function LinkRenderer(props) {
+  return _react2.default.createElement(
+    'a',
+    { href: props.href, target: '_blank' },
+    props.children
+  );
+}
+
+var Chunk = function (_Component) {
+  _inherits(Chunk, _Component);
+
+  function Chunk(props) {
+    _classCallCheck(this, Chunk);
+
+    var _this = _possibleConstructorReturn(this, (Chunk.__proto__ || Object.getPrototypeOf(Chunk)).call(this, props));
+
+    _this.getPosition = function () {
+      var height = _this.element.offsetHeight;
+      var top = _this.element.offsetTop;
+      return {
+        height: height,
+        top: top
+      };
+    };
+    return _this;
+  }
+
+  _createClass(Chunk, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          _props$chunk = _props.chunk,
+          chunk = _props$chunk === undefined ? {} : _props$chunk,
+          onClick = _props.onClick,
+          onTagQuery = _props.onTagQuery,
+          id = _props.id;
+
+      var onChunkClick = function onChunkClick() {
+        return onClick(chunk);
+      };
+      var bindRef = function bindRef(section) {
+        _this2.element = section;
+      };
+      return _react2.default.createElement(
+        'section',
+        {
+          className: 'dicto-player-Chunk ' + (chunk.active ? 'active ' : ' ') + (chunk.matched === false ? 'hidden' : ' '),
+          onClick: onChunkClick,
+          id: id,
+          ref: bindRef },
+        _react2.default.createElement(
+          'div',
+          { className: 'contents-container' },
+          _react2.default.createElement(_reactMarkdown2.default, {
+            source: chunk.content,
+            renderers: { Link: LinkRenderer } })
+        ),
+        chunk.tags ? _react2.default.createElement(
+          'div',
+          { className: 'tags-container' },
+          chunk.tags.map(function (tag, index) {
+            var onTagClick = function onTagClick() {
+              return onTagQuery('' + tag.name);
+            };
+            return _react2.default.createElement(
+              'span',
+              {
+                className: 'tag',
+                key: index,
+                onClick: onTagClick,
+                style: {
+                  background: tag.color,
+                  color: (0, _getContrastYIQ2.default)(tag.color)
+                } },
+              tag.name,
+              ' (',
+              tag.category,
+              ')'
+            );
+          })
+        ) : null
+      );
+    }
+  }]);
+
+  return Chunk;
+}(_react.Component);
+
+exports.default = Chunk;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-markdown");
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getContrastYIQ;
+function getContrastYIQ(hexcolor) {
+  if (!hexcolor) {
+    return;
+  }
+  if (hexcolor.length > 6) {
+    hexcolor = hexcolor.substring(1);
+  }
+  var r = parseInt(hexcolor.substr(0, 2), 16);
+  var g = parseInt(hexcolor.substr(2, 2), 16);
+  var b = parseInt(hexcolor.substr(4, 2), 16);
+  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? 'black' : 'white';
+}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactMediaPlayer = __webpack_require__(10);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint react/no-set-state : 0 */
+
+
+var CustomPlayPause = function (_Component) {
+  _inherits(CustomPlayPause, _Component);
+
+  function CustomPlayPause(props) {
+    _classCallCheck(this, CustomPlayPause);
+
+    var _this = _possibleConstructorReturn(this, (CustomPlayPause.__proto__ || Object.getPrototypeOf(CustomPlayPause)).call(this, props));
+
+    _this.seekToCurrentMediaTime = _this.seekToCurrentMediaTime.bind(_this);
+
+    _this.state = {
+      seeking: false
+    };
+    return _this;
+  }
+
+  _createClass(CustomPlayPause, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this2 = this;
+
+      if (Math.abs(this.props.currentMediaTime - nextProps.currentMediaTime) > 1 && !this.props.isLoading) {
+
+        if (this.state.seeking === false) {
+          this.setState({ seeking: true });
+          setTimeout(function () {
+            _this2.seekToCurrentMediaTime(nextProps.currentMediaTime);
+          });
+          setTimeout(function () {
+            return _this2.setState({ seeking: false });
+          }, 200);
+        }
+      }
+
+      if (this.props.isPlaying !== nextProps.isPlaying) {
+        if (nextProps.isPlaying) {
+          setTimeout(this.props.media.play);
+        } else {
+          setTimeout(this.props.media.pause);
+        }
+      }
+      if (this.props.playerVolume !== nextProps.playerVolume) {
+        setTimeout(function () {
+          _this2.props.media.setVolume(nextProps.playerVolume);
+        });
+      }
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate() {
+      return true;
+    }
+  }, {
+    key: 'seekToCurrentMediaTime',
+    value: function seekToCurrentMediaTime(nextTime) {
+      this.props.media.seekTo(nextTime);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          style = _props.style;
+
+      return _react2.default.createElement(
+        'span',
+        {
+          className: className,
+          style: style },
+        this.props.currentMediaTime
+      );
+    }
+  }]);
+
+  return CustomPlayPause;
+}(_react.Component);
+
+exports.default = (0, _reactMediaPlayer.withMediaProps)(CustomPlayPause);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 29 */
 /***/ (function(module, exports) {
 
@@ -1893,11 +1906,540 @@ exports.default = Railway;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(31);
+
+var _reactModal = __webpack_require__(4);
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
+var _ChunksContainer = __webpack_require__(5);
+
+var _ChunksContainer2 = _interopRequireDefault(_ChunksContainer);
+
+var _MediaPlayer = __webpack_require__(6);
+
+var _MediaPlayer2 = _interopRequireDefault(_MediaPlayer);
+
+var _SearchComposition = __webpack_require__(7);
+
+var _SearchComposition2 = _interopRequireDefault(_SearchComposition);
+
+var _InfoTip = __webpack_require__(8);
+
+var _InfoTip2 = _interopRequireDefault(_InfoTip);
+
+var _Railway = __webpack_require__(9);
+
+var _Railway2 = _interopRequireDefault(_Railway);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FullscreenLayout = function FullscreenLayout(_ref) {
+  var _ref$chunks = _ref.chunks,
+      chunks = _ref$chunks === undefined ? [] : _ref$chunks,
+      compositionTitle = _ref.compositionTitle,
+      compositionDescription = _ref.compositionDescription,
+      compositionAuthors = _ref.compositionAuthors,
+      _ref$settings$allowEm = _ref.settings.allowEmbed,
+      allowEmbed = _ref$settings$allowEm === undefined ? true : _ref$settings$allowEm,
+      mediaUrl = _ref.mediaUrl,
+      currentMediaTime = _ref.currentMediaTime,
+      currentMediaDuration = _ref.currentMediaDuration,
+      searchQuery = _ref.searchQuery,
+      informationModalVisible = _ref.informationModalVisible,
+      scrollPosition = _ref.scrollPosition,
+      isPlaying = _ref.isPlaying,
+      playerVolume = _ref.playerVolume,
+      _ref$actions = _ref.actions,
+      setCurrentMediaDuration = _ref$actions.setCurrentMediaDuration,
+      setCurrentMediaTime = _ref$actions.setCurrentMediaTime,
+      setSearchQuery = _ref$actions.setSearchQuery,
+      setInformationModalVisibility = _ref$actions.setInformationModalVisibility,
+      toggleIsPlaying = _ref$actions.toggleIsPlaying,
+      setPlayerVolume = _ref$actions.setPlayerVolume,
+      onExit = _ref.onExit;
+
+  var closeModal = function closeModal() {
+    return setInformationModalVisibility(false);
+  };
+  return _react2.default.createElement(
+    'section',
+    { className: 'dicto-player-FullscreenLayout' },
+    _react2.default.createElement(
+      'div',
+      { className: 'header' },
+      _react2.default.createElement(
+        'h1',
+        null,
+        compositionTitle || 'Dicto',
+        ' ',
+        allowEmbed && _react2.default.createElement(_InfoTip2.default, { onClick: setInformationModalVisibility }),
+        ' '
+      ),
+      _react2.default.createElement(_SearchComposition2.default, {
+        searchQuery: searchQuery,
+        onSearchQueryChange: setSearchQuery })
+    ),
+    _react2.default.createElement(
+      'section',
+      { className: 'main-row' },
+      _react2.default.createElement(
+        'section',
+        { className: 'media-container' },
+        _react2.default.createElement(_MediaPlayer2.default, {
+          mediaUrl: mediaUrl,
+          onDuration: setCurrentMediaDuration,
+          o: true, gnTimeUpdate: setCurrentMediaTime,
+          currentMediaTime: currentMediaTime,
+          isPlaying: isPlaying,
+          onClick: toggleIsPlaying,
+          playerVolume: playerVolume })
+      ),
+      _react2.default.createElement(
+        'section',
+        { className: 'contents-wrapper' },
+        _react2.default.createElement(_Railway2.default, {
+          chunks: chunks,
+          scrollPosition: scrollPosition,
+          currentMediaDuration: currentMediaDuration,
+          currentMediaTime: currentMediaTime,
+          seekToSec: setCurrentMediaTime,
+          isPlaying: isPlaying,
+          toggleIsPlaying: toggleIsPlaying,
+          playerVolume: playerVolume,
+          setPlayerVolume: setPlayerVolume }),
+        _react2.default.createElement(_ChunksContainer2.default, { onExit: onExit })
+      )
+    ),
+    informationModalVisible ? _react2.default.createElement(
+      _reactModal2.default,
+      {
+        isOpen: informationModalVisible,
+        onRequestClose: closeModal,
+        shouldCloseOnOverlayClick: true,
+        className: 'dicto-player-modal',
+        contentLabel: 'Information' },
+      _react2.default.createElement(
+        'h2',
+        null,
+        compositionTitle || 'Dicto'
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'modal-content-wrapper' },
+        compositionDescription || compositionAuthors ? _react2.default.createElement(
+          'div',
+          { className: 'modal-column info' },
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'i',
+              null,
+              compositionDescription
+            )
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'i',
+              null,
+              compositionAuthors.map(function (author) {
+                return author;
+              }).join(', '),
+              '.'
+            )
+          )
+        ) : null,
+        _react2.default.createElement(
+          'div',
+          { className: 'modal-column addresses' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Partager'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-section' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Url de cette composition : '
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'to-copy' },
+              window.location.href
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-section' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Embarquer : '
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'to-copy' },
+              '<iframe src="' + window.location.href + '" frameborder=0 allowfullscreen width=800 height=600 />'
+            )
+          )
+        )
+      )
+    ) : null
+  );
+};
+
+exports.default = FullscreenLayout;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactTagcloud = __webpack_require__(33);
+
+__webpack_require__(34);
+
+var _reactModal = __webpack_require__(4);
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
+var _ChunksContainer = __webpack_require__(5);
+
+var _ChunksContainer2 = _interopRequireDefault(_ChunksContainer);
+
+var _MediaPlayer = __webpack_require__(6);
+
+var _MediaPlayer2 = _interopRequireDefault(_MediaPlayer);
+
+var _SearchComposition = __webpack_require__(7);
+
+var _SearchComposition2 = _interopRequireDefault(_SearchComposition);
+
+var _InfoTip = __webpack_require__(8);
+
+var _InfoTip2 = _interopRequireDefault(_InfoTip);
+
+var _Railway = __webpack_require__(9);
+
+var _Railway2 = _interopRequireDefault(_Railway);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PeckingLayout = function (_Component) {
+  _inherits(PeckingLayout, _Component);
+
+  function PeckingLayout(props) {
+    _classCallCheck(this, PeckingLayout);
+
+    var _this = _possibleConstructorReturn(this, (PeckingLayout.__proto__ || Object.getPrototypeOf(PeckingLayout)).call(this, props));
+
+    _this.updateVisData = _this.updateVisData.bind(_this);
+    _this.state = {
+      network: {
+        nodes: [],
+        edges: []
+      }
+    };
+    return _this;
+  }
+
+  _createClass(PeckingLayout, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.updateVisData(this.props);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.chunks !== nextProps.chunks) {
+        this.updateVisData(nextProps);
+      }
+    }
+  }, {
+    key: 'updateVisData',
+    value: function updateVisData(props) {
+      var chunks = props.chunks;
+
+
+      var nodeIndex = 0;
+      var network = chunks.reduce(function (result, chunk) {
+        var tags = chunk.tags || [];
+        return tags.reduce(function (res, tag) {
+          nodeIndex++;
+          var n = res.nodes.find(function (node) {
+            return node.name === tag.name && node.category === tag.category;
+          });
+          if (n) {
+            n.count = n.count + 1;
+          } else {
+            res.nodes.push(_extends({}, tag, {
+              value: tag.name, // + ' (' + tag.category + ')',
+              id: nodeIndex,
+              count: 1
+            }));
+          }
+          return res;
+        }, result);
+      }, {
+        nodes: [],
+        edges: []
+      });
+      network.nodes = network.nodes.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        } else return -1;
+      });
+      this.setState({ network: network }); /* eslint react/no-set-state: 0 */
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$chunks = _props.chunks,
+          chunks = _props$chunks === undefined ? [] : _props$chunks,
+          compositionTitle = _props.compositionTitle,
+          compositionDescription = _props.compositionDescription,
+          compositionAuthors = _props.compositionAuthors,
+          _props$settings$allow = _props.settings.allowEmbed,
+          allowEmbed = _props$settings$allow === undefined ? true : _props$settings$allow,
+          mediaUrl = _props.mediaUrl,
+          currentMediaTime = _props.currentMediaTime,
+          currentMediaDuration = _props.currentMediaDuration,
+          searchQuery = _props.searchQuery,
+          informationModalVisible = _props.informationModalVisible,
+          scrollPosition = _props.scrollPosition,
+          isPlaying = _props.isPlaying,
+          playerVolume = _props.playerVolume,
+          _props$actions = _props.actions,
+          setCurrentMediaDuration = _props$actions.setCurrentMediaDuration,
+          setCurrentMediaTime = _props$actions.setCurrentMediaTime,
+          setSearchQuery = _props$actions.setSearchQuery,
+          setInformationModalVisibility = _props$actions.setInformationModalVisibility,
+          toggleIsPlaying = _props$actions.toggleIsPlaying,
+          setPlayerVolume = _props$actions.setPlayerVolume,
+          onExit = _props.onExit;
+      var nodes = this.state.network.nodes;
+
+      var onTagClick = function onTagClick(tag) {
+        return setSearchQuery(tag.value);
+      };
+      var closeModal = function closeModal() {
+        return setInformationModalVisibility(false);
+      };
+      return _react2.default.createElement(
+        'section',
+        { className: 'dicto-player-PeckingLayout' },
+        _react2.default.createElement(
+          'aside',
+          { className: 'aside-column' },
+          _react2.default.createElement(
+            'div',
+            { className: 'header' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              compositionTitle || 'Dicto',
+              ' ',
+              allowEmbed && _react2.default.createElement(_InfoTip2.default, { onClick: setInformationModalVisibility }),
+              ' '
+            ),
+            _react2.default.createElement(_SearchComposition2.default, {
+              searchQuery: searchQuery,
+              onSearchQueryChange: setSearchQuery })
+          ),
+          _react2.default.createElement(_ChunksContainer2.default, { onExit: onExit })
+        ),
+        _react2.default.createElement(_Railway2.default, {
+          chunks: chunks,
+          scrollPosition: scrollPosition,
+          currentMediaDuration: currentMediaDuration,
+          currentMediaTime: currentMediaTime,
+          seekToSec: setCurrentMediaTime,
+          isPlaying: isPlaying,
+          toggleIsPlaying: toggleIsPlaying,
+          playerVolume: playerVolume,
+          setPlayerVolume: setPlayerVolume }),
+        _react2.default.createElement(
+          'section',
+          { className: 'media-column' },
+          _react2.default.createElement(
+            'div',
+            { className: 'media-container' },
+            _react2.default.createElement(_MediaPlayer2.default, {
+              mediaUrl: mediaUrl,
+              onDuration: setCurrentMediaDuration,
+              o: true, gnTimeUpdate: setCurrentMediaTime,
+              currentMediaTime: currentMediaTime,
+              isPlaying: isPlaying,
+              onClick: toggleIsPlaying,
+              playerVolume: playerVolume })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'visualization-container' },
+
+            // visMode === 'tagcloud' &&
+            _react2.default.createElement(_reactTagcloud.TagCloud, {
+              minSize: 12,
+              maxSize: 35,
+              tags: nodes,
+              className: 'tagcloud',
+              onClick: onTagClick })
+          )
+        ),
+        informationModalVisible ? _react2.default.createElement(
+          _reactModal2.default,
+          {
+            isOpen: informationModalVisible,
+            onRequestClose: closeModal,
+            shouldCloseOnOverlayClick: true,
+            className: 'dicto-player-modal',
+            contentLabel: 'Information' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            compositionTitle || 'Dicto'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-content-wrapper' },
+            compositionDescription || compositionAuthors ? _react2.default.createElement(
+              'div',
+              { className: 'modal-column info' },
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'i',
+                  null,
+                  compositionDescription
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'i',
+                  null,
+                  compositionAuthors.map(function (author) {
+                    return author;
+                  }).join(', '),
+                  '.'
+                )
+              )
+            ) : null,
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-column addresses' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Partager'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'modal-section' },
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'Url de cette composition : '
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'to-copy' },
+                  window.location.href
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'modal-section' },
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'Embarquer : '
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'to-copy' },
+                  '<iframe src="' + window.location.href + '" frameborder=0 allowfullscreen width=800 height=600 />'
+                )
+              )
+            )
+          )
+        ) : null
+      );
+    }
+  }]);
+
+  return PeckingLayout;
+}(_react.Component);
+
+exports.default = PeckingLayout;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-tagcloud");
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = configureStore;
 
 var _redux = __webpack_require__(1);
 
-var _reduxThunk = __webpack_require__(31);
+var _reduxThunk = __webpack_require__(36);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -1905,7 +2447,7 @@ var _duck = __webpack_require__(3);
 
 var _duck2 = _interopRequireDefault(_duck);
 
-var _promiseMiddleware = __webpack_require__(32);
+var _promiseMiddleware = __webpack_require__(37);
 
 var _promiseMiddleware2 = _interopRequireDefault(_promiseMiddleware);
 
@@ -1948,13 +2490,13 @@ function configureStore() {
 }
 
 /***/ }),
-/* 31 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 32 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

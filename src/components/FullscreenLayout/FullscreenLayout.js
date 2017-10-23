@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ColumnsLayout.scss';
+import './FullscreenLayout.scss';
 
 import Modal from 'react-modal';
 
@@ -12,7 +12,7 @@ import InfoTip from '../InfoTip/InfoTip';
 import Railway from '../Railway/Railway';
 
 
-const ColumnsLayout = ({
+const FullscreenLayout = ({
   chunks = [],
   compositionTitle,
   compositionDescription,
@@ -42,35 +42,37 @@ const ColumnsLayout = ({
 }) => {
   const closeModal = () => setInformationModalVisibility(false);
   return (
-    <section className="dicto-player-ColumnsLayout">
-      <aside className="aside-column">
-        <div className="header">
-          <h1>{compositionTitle || 'Dicto'} {allowEmbed && <InfoTip onClick={setInformationModalVisibility} />} </h1>
-          <SearchComposition
-            searchQuery={searchQuery}
-            onSearchQueryChange={setSearchQuery} />
-        </div>
-        <ChunksContainer onExit={onExit} />
-      </aside>
-      <Railway
-        chunks={chunks}
-        scrollPosition={scrollPosition}
-        currentMediaDuration={currentMediaDuration}
-        currentMediaTime={currentMediaTime}
-        seekToSec={setCurrentMediaTime}
-        isPlaying={isPlaying}
-        toggleIsPlaying={toggleIsPlaying}
-        playerVolume={playerVolume}
-        setPlayerVolume={setPlayerVolume} />
-      <section className="media-column">
-        <MediaPlayer
-          mediaUrl={mediaUrl}
-          onDuration={setCurrentMediaDuration}
-          o gnTimeUpdate={setCurrentMediaTime}
-          currentMediaTime={currentMediaTime}
-          isPlaying={isPlaying}
-          onClick={toggleIsPlaying}
-          playerVolume={playerVolume} />
+    <section className="dicto-player-FullscreenLayout">
+      <div className="header">
+        <h1>{compositionTitle || 'Dicto'} {allowEmbed && <InfoTip onClick={setInformationModalVisibility} />} </h1>
+        <SearchComposition
+          searchQuery={searchQuery}
+          onSearchQueryChange={setSearchQuery} />
+      </div>
+      <section className="main-row">
+        <section className="media-container">
+          <MediaPlayer
+            mediaUrl={mediaUrl}
+            onDuration={setCurrentMediaDuration}
+            o gnTimeUpdate={setCurrentMediaTime}
+            currentMediaTime={currentMediaTime}
+            isPlaying={isPlaying}
+            onClick={toggleIsPlaying}
+            playerVolume={playerVolume} />
+        </section>
+        <section className="contents-wrapper">
+          <Railway
+            chunks={chunks}
+            scrollPosition={scrollPosition}
+            currentMediaDuration={currentMediaDuration}
+            currentMediaTime={currentMediaTime}
+            seekToSec={setCurrentMediaTime}
+            isPlaying={isPlaying}
+            toggleIsPlaying={toggleIsPlaying}
+            playerVolume={playerVolume}
+            setPlayerVolume={setPlayerVolume} />
+          <ChunksContainer onExit={onExit} />
+        </section>
       </section>
 
       {
@@ -120,4 +122,4 @@ const ColumnsLayout = ({
   );
 };
 
-export default ColumnsLayout;
+export default FullscreenLayout;

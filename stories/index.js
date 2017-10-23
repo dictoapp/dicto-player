@@ -55,3 +55,22 @@ storiesOf('Dicto player', module)
       </div>
     </div>
   ))
+  .add('fullscreen mode', () => (
+    <Player 
+      composition={transcription1}
+      settings={{
+        displayMode: 'fullscreen'
+      }}
+          onExit={onExit}
+    />
+  ))
+  .add('pecking mode (tag cloud)', () => (
+    <Player 
+      composition={transcription2}
+      settings={{
+        displayMode: 'pecking',
+        visMode: 'tagcloud'
+      }}
+          onExit={onExit}
+    />
+  ))

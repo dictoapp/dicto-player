@@ -12,6 +12,8 @@ import * as duck from '../../redux/duck';
 
 
 import ColumnsLayout from '../../components/ColumnsLayout/ColumnsLayout';
+import FullscreenLayout from '../../components/FullscreenLayout/FullscreenLayout';
+import PeckingLayout from '../../components/PeckingLayout/PeckingLayout';
 
 /**
  * Redux-decorated component class rendering the player feature to the app
@@ -32,6 +34,12 @@ class PlayerContainer extends Component {
     super(props);
     this.renderAppropriatePlayer = (displayMode, theseProps) => {
       switch (displayMode) {
+        case 'pecking':
+          return <PeckingLayout {...theseProps} />;
+
+        case 'fullscreen':
+          return <FullscreenLayout {...theseProps} />;
+
         case 'columns':
         default:
           return <ColumnsLayout {...theseProps} />;
